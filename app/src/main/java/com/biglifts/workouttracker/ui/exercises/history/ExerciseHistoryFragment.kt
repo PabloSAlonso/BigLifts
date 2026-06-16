@@ -18,6 +18,7 @@ import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -101,6 +102,17 @@ class ExerciseHistoryFragment : Fragment() {
                     binding.tvCurrentPr.text = pr?.let {
                         "PR: ${it.weight?.toInt() ?: "?"}kg x ${it.reps ?: "?"}"
                     } ?: "No PR yet"
+                }
+            }
+        }
+
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.error.collect { error ->
+                    error?.let {
+                        Snackbar.make(binding.root, it, Snackbar.LENGTH_LONG).show()
+                        viewModel.clearError()
+                    }
                 }
             }
         }

@@ -28,6 +28,11 @@ class WorkoutDetailViewModel @Inject constructor(
     private val _isLoading = MutableStateFlow(false)
     val isLoading: StateFlow<Boolean> = _isLoading
 
+    private val _error = MutableStateFlow<String?>(null)
+    val error: StateFlow<String?> = _error
+
+    fun clearError() { _error.value = null }
+
     fun loadWorkoutDetail(workoutId: String) {
         viewModelScope.launch {
             _isLoading.value = true
@@ -40,7 +45,7 @@ class WorkoutDetailViewModel @Inject constructor(
                 val exercises = apiClient.getSessionExercises(workoutId)
                 _exercises.value = exercises
             } catch (e: Exception) {
-                // Handle error
+                _error.value = "Failed to load workout details: ${e.localizedMessage}"
             } finally {
                 _isLoading.value = false
             }

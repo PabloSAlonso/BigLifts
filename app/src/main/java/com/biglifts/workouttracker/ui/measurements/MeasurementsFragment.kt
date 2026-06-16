@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.biglifts.workouttracker.R
 import com.biglifts.workouttracker.databinding.FragmentMeasurementsBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -66,6 +67,17 @@ class MeasurementsFragment : Fragment() {
                         binding.tvLatestWeight.text = latest.weight?.let { "${it} kg" } ?: "--"
                         binding.tvLatestBodyFat.text = latest.bodyFatPercentage?.let { "${it}%" } ?: "--"
                         binding.tvLatestDate.text = latest.measuredAt ?: ""
+                    }
+                }
+            }
+        }
+
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.error.collect { error ->
+                    error?.let {
+                        Snackbar.make(binding.root, it, Snackbar.LENGTH_LONG).show()
+                        viewModel.clearError()
                     }
                 }
             }

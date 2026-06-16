@@ -22,13 +22,18 @@ class MeasurementsViewModel @Inject constructor(
     private val _measurements = MutableStateFlow<List<BodyMeasurement>>(emptyList())
     val measurements: StateFlow<List<BodyMeasurement>> = _measurements
 
+    private val _error = MutableStateFlow<String?>(null)
+    val error: StateFlow<String?> = _error
+
+    fun clearError() { _error.value = null }
+
     fun loadMeasurements() {
         viewModelScope.launch {
             try {
                 val result = apiClient.getBodyMeasurements()
                 _measurements.value = result
             } catch (e: Exception) {
-                // Handle error
+                _error.value = "Failed to load measurements: ${e.localizedMessage}"
             }
         }
     }
@@ -64,7 +69,7 @@ class MeasurementsViewModel @Inject constructor(
                 apiClient.createBodyMeasurement(request)
                 loadMeasurements()
             } catch (e: Exception) {
-                // Handle error
+                _error.value = "Failed to save measurement: ${e.localizedMessage}"
             }
         }
     }
@@ -75,7 +80,7 @@ class MeasurementsViewModel @Inject constructor(
                 apiClient.deleteBodyMeasurement(id)
                 loadMeasurements()
             } catch (e: Exception) {
-                // Handle error
+                _error.value = "Failed to delete measurement: ${e.localizedMessage}"
             }
         }
     }

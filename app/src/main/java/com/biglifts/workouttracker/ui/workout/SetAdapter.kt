@@ -16,7 +16,8 @@ import com.biglifts.workouttracker.databinding.ItemSetInputBinding
 class SetAdapter(
     private val exerciseId: String,
     private val previousSets: List<WorkoutSet>,
-    private val onSetUpdated: (WorkoutSet) -> Unit
+    private val onSetUpdated: (WorkoutSet) -> Unit,
+    private val onSetCompleted: (() -> Unit)? = null
 ) : ListAdapter<WorkoutSet, SetAdapter.SetViewHolder>(SetDiffCallback()) {
 
     private val previousBestMap = mutableMapOf<Int, WorkoutSet>()
@@ -159,6 +160,9 @@ class SetAdapter(
             binding.cbCompleted.isChecked = set.completed
             binding.cbCompleted.setOnCheckedChangeListener { _, isChecked ->
                 onSetUpdated(set.copy(completed = isChecked))
+                if (isChecked) {
+                    onSetCompleted?.invoke()
+                }
             }
         }
     }

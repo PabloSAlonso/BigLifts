@@ -28,6 +28,11 @@ class ExerciseHistoryViewModel @Inject constructor(
     private val _isLoading = MutableStateFlow(false)
     val isLoading: StateFlow<Boolean> = _isLoading
 
+    private val _error = MutableStateFlow<String?>(null)
+    val error: StateFlow<String?> = _error
+
+    fun clearError() { _error.value = null }
+
     fun loadExerciseHistory(exerciseId: String) {
         viewModelScope.launch {
             _isLoading.value = true
@@ -38,7 +43,7 @@ class ExerciseHistoryViewModel @Inject constructor(
                 val prs = apiClient.getPersonalRecords(exerciseId)
                 _pr.value = prs.firstOrNull()
             } catch (e: Exception) {
-                // Handle error
+                _error.value = "Failed to load exercise history: ${e.localizedMessage}"
             } finally {
                 _isLoading.value = false
             }

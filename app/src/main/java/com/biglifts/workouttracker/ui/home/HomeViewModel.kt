@@ -25,6 +25,11 @@ class HomeViewModel @Inject constructor(
     private val _stats = MutableStateFlow(StatsResponse())
     val stats: StateFlow<StatsResponse> = _stats
 
+    private val _error = MutableStateFlow<String?>(null)
+    val error: StateFlow<String?> = _error
+
+    fun clearError() { _error.value = null }
+
     fun loadData() {
         viewModelScope.launch {
             try {
@@ -34,7 +39,7 @@ class HomeViewModel @Inject constructor(
                 val stats = apiClient.getStats()
                 _stats.value = stats
             } catch (e: Exception) {
-                // Handle error
+                _error.value = "Failed to load data: ${e.localizedMessage}"
             }
         }
     }

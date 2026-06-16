@@ -24,6 +24,11 @@ class WorkoutHistoryViewModel @Inject constructor(
     private val _isLoading = MutableStateFlow(false)
     val isLoading: StateFlow<Boolean> = _isLoading
 
+    private val _error = MutableStateFlow<String?>(null)
+    val error: StateFlow<String?> = _error
+
+    fun clearError() { _error.value = null }
+
     fun loadWorkouts() {
         viewModelScope.launch {
             _isLoading.value = true
@@ -32,6 +37,7 @@ class WorkoutHistoryViewModel @Inject constructor(
                 _workouts.value = response.data
             } catch (e: Exception) {
                 _workouts.value = emptyList()
+                _error.value = "Failed to load workouts: ${e.localizedMessage}"
             } finally {
                 _isLoading.value = false
             }
@@ -44,7 +50,7 @@ class WorkoutHistoryViewModel @Inject constructor(
                 apiClient.deleteWorkout(id)
                 _workouts.value = _workouts.value.filter { it.id != id }
             } catch (e: Exception) {
-                // Handle error
+                _error.value = "Failed to delete workout: ${e.localizedMessage}"
             }
         }
     }

@@ -10,6 +10,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.biglifts.workouttracker.R
 import com.biglifts.workouttracker.databinding.FragmentWorkoutTemplatesBinding
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -68,6 +69,13 @@ class WorkoutTemplatesFragment : Fragment() {
 
         binding.btnNewTemplate.setOnClickListener {
             viewModel.createTemplate()
+        }
+
+        viewModel.error.observe(viewLifecycleOwner) { error ->
+            error?.let {
+                Snackbar.make(binding.root, it, Snackbar.LENGTH_LONG).show()
+                viewModel.clearError()
+            }
         }
     }
 

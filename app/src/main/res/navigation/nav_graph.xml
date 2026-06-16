@@ -16,12 +16,18 @@
         <action
             android:id="@+id/action_login_to_questionnaire"
             app:destination="@id/questionnaireFragment"
+            app:enterAnim="@anim/slide_up"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_down"
             app:popUpTo="@id/loginFragment"
             app:popUpToInclusive="true" />
 
         <action
             android:id="@+id/action_login_to_main"
             app:destination="@id/mainFragment"
+            app:enterAnim="@anim/slide_up"
+            app:exitAnim="@anim/fade_out"
             app:popUpTo="@id/loginFragment"
             app:popUpToInclusive="true" />
     </fragment>
@@ -35,6 +41,8 @@
         <action
             android:id="@+id/action_questionnaire_to_main"
             app:destination="@id/mainFragment"
+            app:enterAnim="@anim/slide_up"
+            app:exitAnim="@anim/fade_out"
             app:popUpTo="@id/loginFragment"
             app:popUpToInclusive="true" />
     </fragment>
@@ -48,7 +56,11 @@
 
         <action
             android:id="@+id/action_main_to_new_workout"
-            app:destination="@id/newWorkoutFragment" />
+            app:destination="@id/newWorkoutFragment"
+            app:enterAnim="@anim/slide_up"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_down" />
 
         <action
             android:id="@+id/action_main_to_login"
@@ -67,6 +79,8 @@
         <action
             android:id="@+id/action_new_workout_to_active"
             app:destination="@id/activeWorkoutFragment"
+            app:enterAnim="@anim/slide_up"
+            app:exitAnim="@anim/fade_out"
             app:popUpTo="@id/mainFragment" />
     </fragment>
 
@@ -87,7 +101,9 @@
 
         <action
             android:id="@+id/action_detail_to_active"
-            app:destination="@id/activeWorkoutFragment" />
+            app:destination="@id/activeWorkoutFragment"
+            app:enterAnim="@anim/slide_up"
+            app:exitAnim="@anim/fade_out" />
     </fragment>
 
     <!-- Active Workout -->
@@ -108,7 +124,11 @@
 
         <action
             android:id="@+id/active_to_exercise_picker"
-            app:destination="@id/exercisePickerFragment" />
+            app:destination="@id/exercisePickerFragment"
+            app:enterAnim="@anim/slide_up"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_down" />
     </fragment>
 
     <!-- Exercise Picker -->
@@ -141,7 +161,11 @@
 
         <action
             android:id="@+id/measurements_to_add"
-            app:destination="@id/addMeasurementFragment" />
+            app:destination="@id/addMeasurementFragment"
+            app:enterAnim="@anim/slide_up"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_down" />
     </fragment>
 
     <fragment

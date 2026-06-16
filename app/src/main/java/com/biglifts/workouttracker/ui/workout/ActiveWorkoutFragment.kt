@@ -16,7 +16,9 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.biglifts.workouttracker.R
 import com.biglifts.workouttracker.databinding.FragmentActiveWorkoutBinding
+import com.biglifts.workouttracker.ui.workout.timer.RestTimerViewModel
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -26,6 +28,8 @@ class ActiveWorkoutFragment : Fragment() {
     private var _binding: FragmentActiveWorkoutBinding? = null
     private val binding get() = _binding!!
     private val viewModel: ActiveWorkoutViewModel by viewModels()
+    private val restTimerViewModel: RestTimerViewModel by viewModels()
+    private lateinit var activeExerciseAdapter: ActiveExerciseAdapter
 
     private val handler = Handler(Looper.getMainLooper())
     private var startTime = System.currentTimeMillis()
@@ -58,6 +62,7 @@ class ActiveWorkoutFragment : Fragment() {
 
         setupUI(workoutName)
         observeData()
+        observeRestTimer()
         startTimer()
 
         if (workoutId != null) {
@@ -70,6 +75,17 @@ class ActiveWorkoutFragment : Fragment() {
     private fun setupUI(workoutName: String) {
         binding.tvWorkoutName.text = workoutName
 
+        // Setup exercise adapter
+        activeExerciseAdapter = ActiveExerciseAdapter(
+            onAddSet = { exerciseId -> viewModel.addSet(exerciseId) },
+            onSetUpdated = { exerciseId, set -> viewModel.updateSet(exerciseId, set) },
+            onRemoveExercise = { exerciseId -> viewModel.removeExercise(exerciseId) },
+            onSetCompleted = { onSetCompleted() },
+            onAddTechniqueSet = { exerciseId, technique -> viewModel.addSetWithTechnique(exerciseId, technique) }
+        )
+        binding.rvActiveExercises.layoutManager = LinearLayoutManager(requireContext())
+        binding.rvActiveExercises.adapter = activeExerciseAdapter
+
         binding.btnAddExercise.setOnClickListener {
             showExercisePicker()
         }
@@ -81,12 +97,42 @@ class ActiveWorkoutFragment : Fragment() {
         binding.toolbar.setNavigationOnClickListener {
             showExitDialog()
         }
+
+        // Rest timer controls
+        binding.btnPauseTimer.setOnClickListener {
+            if (restTimerViewModel.isRunning.value) {
+                restTimerViewModel.pauseTimer()
+                binding.btnPauseTimer.text = "Resume"
+            } else {
+                restTimerViewModel.resumeTimer(requireContext())
+                binding.btnPauseTimer.text = "Pause"
+            }
+        }
+
+        binding.btnAddTime.setOnClickListener {
+            restTimerViewModel.addTime(15)
+        }
+
+        binding.btnStopTimer.setOnClickListener {
+            restTimerViewModel.stopTimer()
+        }
     }
 
     private fun observeData() {
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.activeExercises.collect { exercises ->
+                    val adapterExercises = exercises.map { data ->
+                        ActiveExerciseAdapter.ActiveExercise(
+                            exerciseId = data.exerciseId,
+                            exercise = data.exercise,
+                            previousSets = data.previousSets,
+                            previousBestWeight = data.previousBestWeight,
+                            previousBestReps = data.previousBestReps,
+                            orderIndex = data.orderIndex
+                        )
+                    }
+                    activeExerciseAdapter.submitList(adapterExercises)
                     binding.rvActiveExercises.isVisible = exercises.isNotEmpty()
                     binding.tvNoExercises.isVisible = exercises.isEmpty()
                 }
@@ -100,6 +146,46 @@ class ActiveWorkoutFragment : Fragment() {
                 }
             }
         }
+
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.error.collect { error ->
+                    error?.let {
+                        Snackbar.make(binding.root, it, Snackbar.LENGTH_LONG).show()
+                        viewModel.clearError()
+                    }
+                }
+            }
+        }
+    }
+
+    private fun observeRestTimer() {
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                restTimerViewModel.timeRemaining.collect { seconds ->
+                    if (seconds > 0) {
+                        binding.restTimerCard.isVisible = true
+                        val mins = seconds / 60
+                        val secs = seconds % 60
+                        binding.tvRestTime.text = String.format("%d:%02d", mins, secs)
+                    } else {
+                        binding.restTimerCard.isVisible = false
+                    }
+                }
+            }
+        }
+
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                restTimerViewModel.isRunning.collect { running ->
+                    binding.btnPauseTimer.text = if (running) "Pause" else "Resume"
+                }
+            }
+        }
+    }
+
+    private fun onSetCompleted() {
+        restTimerViewModel.startTimer(requireContext())
     }
 
     private fun startTimer() {
@@ -107,7 +193,6 @@ class ActiveWorkoutFragment : Fragment() {
     }
 
     private fun showExercisePicker() {
-        // Navigate to exercise picker dialog
         findNavController().navigate(R.id.active_to_exercise_picker)
     }
 
@@ -118,6 +203,7 @@ class ActiveWorkoutFragment : Fragment() {
             .setPositiveButton("Finish") { _, _ ->
                 viewModel.finishWorkout()
                 handler.removeCallbacks(timerRunnable)
+                restTimerViewModel.stopTimer()
                 findNavController().popBackStack()
             }
             .setNegativeButton("Continue", null)
@@ -131,6 +217,7 @@ class ActiveWorkoutFragment : Fragment() {
             .setPositiveButton("Exit") { _, _ ->
                 viewModel.discardWorkout()
                 handler.removeCallbacks(timerRunnable)
+                restTimerViewModel.stopTimer()
                 findNavController().popBackStack()
             }
             .setNegativeButton("Cancel", null)

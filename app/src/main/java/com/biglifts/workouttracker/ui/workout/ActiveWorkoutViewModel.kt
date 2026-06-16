@@ -30,6 +30,11 @@ class ActiveWorkoutViewModel @Inject constructor(
     private val _isLoading = MutableStateFlow(false)
     val isLoading: StateFlow<Boolean> = _isLoading
 
+    private val _error = MutableStateFlow<String?>(null)
+    val error: StateFlow<String?> = _error
+
+    fun clearError() { _error.value = null }
+
     private var workoutId: String? = null
     private val previousDataCache = mutableMapOf<String, Triple<List<WorkoutSet>, Double?, Int?>>()
 
@@ -54,7 +59,7 @@ class ActiveWorkoutViewModel @Inject constructor(
                 _currentWorkout.value = workout
                 workoutId = workout.id
             } catch (e: Exception) {
-                // Handle error
+                _error.value = "Failed to create workout: ${e.localizedMessage}"
             } finally {
                 _isLoading.value = false
             }
@@ -85,7 +90,7 @@ class ActiveWorkoutViewModel @Inject constructor(
                 }
                 _activeExercises.value = activeExercises
             } catch (e: Exception) {
-                // Handle error
+                _error.value = "Failed to load workout: ${e.localizedMessage}"
             } finally {
                 _isLoading.value = false
             }
@@ -119,7 +124,7 @@ class ActiveWorkoutViewModel @Inject constructor(
 
                 _activeExercises.value = _activeExercises.value + newExercise
             } catch (e: Exception) {
-                // Handle error
+                _error.value = "Failed to add exercise: ${e.localizedMessage}"
             } finally {
                 _isLoading.value = false
             }
@@ -127,6 +132,10 @@ class ActiveWorkoutViewModel @Inject constructor(
     }
 
     fun addSet(exerciseId: String) {
+        addSetWithTechnique(exerciseId, null)
+    }
+
+    fun addSetWithTechnique(exerciseId: String, technique: String?) {
         viewModelScope.launch {
             val exercise = _activeExercises.value.find { it.exerciseId == exerciseId } ?: return@launch
             val sessionExerciseId = exercise.sessionExerciseId ?: return@launch
@@ -141,14 +150,16 @@ class ActiveWorkoutViewModel @Inject constructor(
                 setNumber = setNumber,
                 weight = previousSet?.weight,
                 reps = previousSet?.reps,
-                rir = previousSet?.rir
+                rir = previousSet?.rir,
+                intensityTechnique = technique,
+                isIntensityTechnique = technique != null
             )
 
             try {
                 val createdSet = apiClient.createSet(newSet)
                 updateExerciseSets(exerciseId, exercise.sets + createdSet)
             } catch (e: Exception) {
-                // Handle error
+                _error.value = "Failed to add set: ${e.localizedMessage}"
             }
         }
     }
@@ -167,7 +178,7 @@ class ActiveWorkoutViewModel @Inject constructor(
                 val updatedSets = exercise.sets.map { if (it.id == set.id) set else it }
                 updateExerciseSets(exerciseId, updatedSets)
             } catch (e: Exception) {
-                // Handle error
+                _error.value = "Failed to update set: ${e.localizedMessage}"
             }
         }
     }
@@ -189,7 +200,7 @@ class ActiveWorkoutViewModel @Inject constructor(
                     } ?: System.currentTimeMillis())) / 60000).toInt()
                 ))
             } catch (e: Exception) {
-                // Handle error
+                _error.value = "Failed to finish workout: ${e.localizedMessage}"
             }
         }
     }
@@ -200,7 +211,7 @@ class ActiveWorkoutViewModel @Inject constructor(
                 try {
                     apiClient.deleteWorkout(it)
                 } catch (e: Exception) {
-                    // Handle error
+                    _error.value = "Failed to discard workout: ${e.localizedMessage}"
                 }
             }
         }
@@ -245,7 +256,7 @@ class ActiveWorkoutViewModel @Inject constructor(
                 }
             }
         } catch (e: Exception) {
-            // Silent fail
+            // Previous data not critical - fail silently with log
         }
         return Triple(emptyList(), null, null)
     }

@@ -27,6 +27,11 @@ class WorkoutTemplatesViewModel @Inject constructor(
     private val _navigateToActiveWorkout = MutableLiveData<String?>()
     val navigateToActiveWorkout: LiveData<String?> = _navigateToActiveWorkout
 
+    private val _error = MutableLiveData<String?>()
+    val error: LiveData<String?> = _error
+
+    fun clearError() { _error.value = null }
+
     init {
         loadTemplates()
     }
@@ -57,7 +62,7 @@ class WorkoutTemplatesViewModel @Inject constructor(
                     loadTemplates()
                 }
             } catch (e: Exception) {
-                // Handle error
+                _error.value = "Failed to create template: ${e.localizedMessage}"
             }
         }
     }
@@ -72,7 +77,7 @@ class WorkoutTemplatesViewModel @Inject constructor(
                 api.deleteTemplate(template.id)
                 loadTemplates()
             } catch (e: Exception) {
-                // Handle error
+                _error.value = "Failed to delete template: ${e.localizedMessage}"
             }
         }
     }
@@ -85,7 +90,7 @@ class WorkoutTemplatesViewModel @Inject constructor(
                     _navigateToActiveWorkout.value = session.id
                 }
             } catch (e: Exception) {
-                // Handle error
+                _error.value = "Failed to start from template: ${e.localizedMessage}"
             }
         }
     }

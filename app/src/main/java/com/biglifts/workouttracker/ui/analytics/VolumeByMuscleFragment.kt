@@ -11,6 +11,7 @@ import com.github.mikephil.charting.data.BarData
 import com.github.mikephil.charting.data.BarDataSet
 import com.github.mikephil.charting.data.BarEntry
 import com.github.mikephil.charting.utils.ColorTemplate
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -70,6 +71,13 @@ class VolumeByMuscleFragment : Fragment() {
             // Update summary
             binding.tvTotalVolume.text = "${data.sumOf { it.volume }.toInt()} total"
             binding.tvTopMuscle.text = "Top: ${data.maxByOrNull { it.volume }?.muscle ?: "--"}"
+        }
+
+        viewModel.error.observe(viewLifecycleOwner) { error ->
+            error?.let {
+                Snackbar.make(binding.root, it, Snackbar.LENGTH_LONG).show()
+                viewModel.clearError()
+            }
         }
     }
 

@@ -14,7 +14,9 @@ import com.biglifts.workouttracker.databinding.ItemActiveExerciseBinding
 class ActiveExerciseAdapter(
     private val onAddSet: (String) -> Unit,
     private val onSetUpdated: (String, WorkoutSet) -> Unit,
-    private val onRemoveExercise: (String) -> Unit
+    private val onRemoveExercise: (String) -> Unit,
+    private val onSetCompleted: (() -> Unit)? = null,
+    private val onAddTechniqueSet: ((String, String) -> Unit)? = null
 ) : ListAdapter<ActiveExercise, ActiveExerciseAdapter.ExerciseViewHolder>(ExerciseDiffCallback()) {
 
     private val setsAdapters = mutableMapOf<String, SetAdapter>()
@@ -59,7 +61,8 @@ class ActiveExerciseAdapter(
             val setAdapter = SetAdapter(
                 exerciseId = activeExercise.exerciseId,
                 previousSets = activeExercise.previousSets,
-                onSetUpdated = { set -> onSetUpdated(activeExercise.exerciseId, set) }
+                onSetUpdated = { set -> onSetUpdated(activeExercise.exerciseId, set) },
+                onSetCompleted = onSetCompleted
             )
             setsAdapters[activeExercise.exerciseId] = setAdapter
 
@@ -69,6 +72,20 @@ class ActiveExerciseAdapter(
 
             binding.btnAddSet.setOnClickListener {
                 onAddSet(activeExercise.exerciseId)
+            }
+
+            // Intensity technique chips
+            binding.chipDropset.setOnClickListener {
+                onAddTechniqueSet?.invoke(activeExercise.exerciseId, "dropset")
+            }
+            binding.chipRestPause.setOnClickListener {
+                onAddTechniqueSet?.invoke(activeExercise.exerciseId, "restpause")
+            }
+            binding.chipMyorep.setOnClickListener {
+                onAddTechniqueSet?.invoke(activeExercise.exerciseId, "myorep")
+            }
+            binding.chipCluster.setOnClickListener {
+                onAddTechniqueSet?.invoke(activeExercise.exerciseId, "cluster")
             }
 
             binding.ivRemove.setOnClickListener {

@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.biglifts.workouttracker.R
 import com.biglifts.workouttracker.data.models.WorkoutSession
 import com.biglifts.workouttracker.databinding.FragmentHomeBinding
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -94,6 +95,17 @@ class HomeFragment : Fragment() {
                 viewModel.stats.collect { stats ->
                     binding.tvTotalWorkouts.text = "${stats.totalWorkouts}"
                     binding.tvWeekWorkouts.text = "${stats.weekWorkouts}"
+                }
+            }
+        }
+
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.error.collect { error ->
+                    error?.let {
+                        Snackbar.make(binding.root, it, Snackbar.LENGTH_LONG).show()
+                        viewModel.clearError()
+                    }
                 }
             }
         }

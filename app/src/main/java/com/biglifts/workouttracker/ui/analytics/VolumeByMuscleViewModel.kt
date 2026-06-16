@@ -24,6 +24,11 @@ class VolumeByMuscleViewModel @Inject constructor(
     private val _isLoading = MutableLiveData(false)
     val isLoading: LiveData<Boolean> = _isLoading
 
+    private val _error = MutableLiveData<String?>()
+    val error: LiveData<String?> = _error
+
+    fun clearError() { _error.value = null }
+
     init {
         loadVolumeData()
     }
@@ -36,6 +41,7 @@ class VolumeByMuscleViewModel @Inject constructor(
                 _volumeData.value = response.volumeByMuscle
             } catch (e: Exception) {
                 _volumeData.value = emptyList()
+                _error.value = "Failed to load volume data: ${e.localizedMessage}"
             } finally {
                 _isLoading.value = false
             }

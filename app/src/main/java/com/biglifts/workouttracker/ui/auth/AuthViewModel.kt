@@ -98,12 +98,17 @@ class AuthViewModel @Inject constructor(
         }
     }
 
+    private val _error = MutableStateFlow<String?>(null)
+    val error: StateFlow<String?> = _error
+
+    fun clearError() { _error.value = null }
+
     fun loadProfile() {
         viewModelScope.launch {
             try {
                 _profile.value = apiClient.getProfile()
             } catch (e: Exception) {
-                // Silent fail for profile loading
+                _error.value = "Failed to load profile"
             }
         }
     }

@@ -134,6 +134,68 @@
                         android:layout_height="1dp"
                         android:background="?android:listDivider" />
 
+                    <LinearLayout
+                        android:id="@+id/layoutExportWorkouts"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="12dp"
+                        android:gravity="center_vertical"
+                        android:clickable="true"
+                        android:focusable="true">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_fitness"
+                            android:contentDescription="Export workouts" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Export Workouts (CSV)"
+                            android:textSize="16sp"
+                            android:layout_marginStart="16dp" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="?android:listDivider" />
+
+                    <LinearLayout
+                        android:id="@+id/layoutExportMeasurements"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="12dp"
+                        android:gravity="center_vertical"
+                        android:clickable="true"
+                        android:focusable="true">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_fitness"
+                            android:contentDescription="Export measurements" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Export Measurements (CSV)"
+                            android:textSize="16sp"
+                            android:layout_marginStart="16dp" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="?android:listDivider" />
+
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/btnLogout"
                         style="@style/Widget.MaterialComponents.Button.OutlinedButton"

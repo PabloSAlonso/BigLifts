@@ -1,0 +1,21 @@
+<resources>
+    <color name="primary">#90CAF9</color>
+    <color name="primary_variant">#42A5F5</color>
+    <color name="secondary">#FFB74D</color>
+    <color name="secondary_variant">#FFA726</color>
+    <color name="background">#121212</color>
+    <color name="surface">#1E1E1E</color>
+    <color name="error">#CF6679</color>
+    <color name="on_primary">#000000</color>
+    <color name="on_secondary">#000000</color>
+    <color name="on_background">#FFFFFF</color>
+    <color name="on_surface">#FFFFFF</color>
+    <color name="on_error">#000000</color>
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#B0B0B0</color>
+    <color name="divider">#424242</color>
+    <color name="chip_background">#1A237E</color>
+    <color name="success">#81C784</color>
+    <color name="warning">#FFB74D</color>
+    <color name="ic_launcher_background">#1565C0</color>
+</resources>

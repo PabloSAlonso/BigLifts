@@ -157,6 +157,67 @@
             android:textColor="@color/primary"
             android:layout_marginTop="4dp" />
 
+        <!-- Intensity Technique Buttons -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="4dp"
+            android:gravity="center">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipDropset"
+                style="@style/Widget.MaterialComponents.Chip.Action"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:text="DS"
+                android:textSize="11sp"
+                android:textColor="@color/secondary"
+                app:chipStrokeWidth="1dp"
+                app:chipStrokeColor="@color/secondary"
+                app:chipMinTouchTargetSize="0dp"
+                android:layout_marginEnd="4dp" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipRestPause"
+                style="@style/Widget.MaterialComponents.Chip.Action"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:text="RP"
+                android:textSize="11sp"
+                android:textColor="@color/secondary"
+                app:chipStrokeWidth="1dp"
+                app:chipStrokeColor="@color/secondary"
+                app:chipMinTouchTargetSize="0dp"
+                android:layout_marginEnd="4dp" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipMyorep"
+                style="@style/Widget.MaterialComponents.Chip.Action"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:text="MR"
+                android:textSize="11sp"
+                android:textColor="@color/secondary"
+                app:chipStrokeWidth="1dp"
+                app:chipStrokeColor="@color/secondary"
+                app:chipMinTouchTargetSize="0dp"
+                android:layout_marginEnd="4dp" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipCluster"
+                style="@style/Widget.MaterialComponents.Chip.Action"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:text="CL"
+                android:textSize="11sp"
+                android:textColor="@color/secondary"
+                app:chipStrokeWidth="1dp"
+                app:chipStrokeColor="@color/secondary"
+                app:chipMinTouchTargetSize="0dp" />
+
+        </LinearLayout>
+
     </LinearLayout>
 
 </com.google.android.material.card.MaterialCardView>
