@@ -1,0 +1,32 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Background circle -->
+    <path
+        android:fillColor="#1565C0"
+        android:pathData="M54,54m-50,0a50,50 0,1 1,100 0a50,50 0,1 1,-100 0" />
+
+    <!-- Letter B - left vertical bar -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M30,28L30,80L38,80L38,28Z" />
+
+    <!-- Letter B - top horizontal bar -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M30,28L52,28C58,28 62,32 62,37C62,42 58,46 52,46L38,46L38,28Z" />
+
+    <!-- Letter B - middle horizontal bar -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M38,50L54,50C60,50 64,54 64,58C64,62 60,66 54,66L38,66L38,50Z" />
+
+    <!-- Progress arrow - orange accent going up-right -->
+    <path
+        android:fillColor="#FF6F00"
+        android:pathData="M52,38L68,22L72,26L56,42L60,56L48,56Z" />
+
+</vector>

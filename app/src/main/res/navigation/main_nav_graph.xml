@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav_graph"
+    app:startDestination="@id/homeTab">
+
+    <fragment
+        android:id="@+id/homeTab"
+        android:name="com.biglifts.workouttracker.ui.home.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home">
+
+        <action
+            android:id="@+id/home_to_new_workout"
+            app:destination="@id/newWorkoutFragment" />
+
+        <action
+            android:id="@+id/home_to_detail"
+            app:destination="@id/workoutDetailFragment" />
+
+        <action
+            android:id="@+id/home_to_measurements"
+            app:destination="@id/measurementsFragment" />
+
+        <action
+            android:id="@+id/home_to_calculator"
+            app:destination="@id/oneRepMaxFragment" />
+
+        <action
+            android:id="@+id/home_to_volume"
+            app:destination="@id/volumeByMuscleFragment" />
+
+        <action
+            android:id="@+id/home_to_templates"
+            app:destination="@id/workoutTemplatesFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/templatesTab"
+        android:name="com.biglifts.workouttracker.ui.templates.WorkoutTemplatesFragment"
+        android:label="Templates"
+        tools:layout="@layout/fragment_workout_templates">
+
+        <action
+            android:id="@+id/templates_to_active"
+            app:destination="@id/activeWorkoutFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/workoutsTab"
+        android:name="com.biglifts.workouttracker.ui.workouts.WorkoutHistoryFragment"
+        android:label="Workouts"
+        tools:layout="@layout/fragment_workout_history">
+
+        <action
+            android:id="@+id/workouts_to_detail"
+            app:destination="@id/workoutDetailFragment" />
+
+        <action
+            android:id="@+id/workouts_to_new_workout"
+            app:destination="@id/newWorkoutFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/exercisesTab"
+        android:name="com.biglifts.workouttracker.ui.exercises.ExercisesFragment"
+        android:label="Exercises"
+        tools:layout="@layout/fragment_exercises" />
+
+    <fragment
+        android:id="@+id/profileTab"
+        android:name="com.biglifts.workouttracker.ui.profile.ProfileFragment"
+        android:label="Profile"
+        tools:layout="@layout/fragment_profile">
+
+        <action
+            android:id="@+id/action_profile_to_login"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/homeTab"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <!-- New Workout Name Input -->
+    <fragment
+        android:id="@+id/newWorkoutFragment"
+        android:name="com.biglifts.workouttracker.ui.workout.NewWorkoutFragment"
+        android:label="New Workout"
+        tools:layout="@layout/fragment_new_workout">
+
+        <action
+            android:id="@+id/action_new_workout_to_active"
+            app:destination="@id/activeWorkoutFragment" />
+    </fragment>
+
+    <!-- Workout Detail -->
+    <fragment
+        android:id="@+id/workoutDetailFragment"
+        android:name="com.biglifts.workouttracker.ui.workouts.WorkoutDetailFragment"
+        android:label="Workout Detail"
+        tools:layout="@layout/fragment_workout_detail">
+        <argument
+            android:name="workout_id"
+            app:argType="string" />
+        <argument
+            android:name="workout_name"
+            app:argType="string"
+            app:defaultValue="Workout" />
+        <action
+            android:id="@+id/action_detail_to_active"
+            app:destination="@id/activeWorkoutFragment" />
+    </fragment>
+
+    <!-- Active Workout -->
+    <fragment
+        android:id="@+id/activeWorkoutFragment"
+        android:name="com.biglifts.workouttracker.ui.workout.ActiveWorkoutFragment"
+        android:label="Active Workout"
+        tools:layout="@layout/fragment_active_workout">
+        <argument
+            android:name="workout_id"
+            app:argType="string"
+            app:defaultValue="@null" />
+        <argument
+            android:name="workout_name"
+            app:argType="string"
+            app:defaultValue="Workout" />
+        <action
+            android:id="@+id/active_to_exercise_picker"
+            app:destination="@id/exercisePickerFragment" />
+    </fragment>
+
+    <!-- Exercise Picker -->
+    <fragment
+        android:id="@+id/exercisePickerFragment"
+        android:name="com.biglifts.workouttracker.ui.exercises.ExercisePickerFragment"
+        android:label="Pick Exercise"
+        tools:layout="@layout/fragment_exercise_picker" />
+
+    <!-- Body Measurements -->
+    <fragment
+        android:id="@+id/measurementsFragment"
+        android:name="com.biglifts.workouttracker.ui.measurements.MeasurementsFragment"
+        android:label="Measurements"
+        tools:layout="@layout/fragment_measurements">
+
+        <action
+            android:id="@+id/measurements_to_add"
+            app:destination="@id/addMeasurementFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/addMeasurementFragment"
+        android:name="com.biglifts.workouttracker.ui.measurements.AddMeasurementFragment"
+        android:label="Add Measurement"
+        tools:layout="@layout/fragment_add_measurement" />
+
+    <!-- Exercise History -->
+    <fragment
+        android:id="@+id/exerciseHistoryFragment"
+        android:name="com.biglifts.workouttracker.ui.exercises.history.ExerciseHistoryFragment"
+        android:label="Exercise History"
+        tools:layout="@layout/fragment_exercise_history">
+        <argument
+            android:name="exercise_id"
+            app:argType="string" />
+        <argument
+            android:name="exercise_name"
+            app:argType="string"
+            app:defaultValue="Exercise" />
+    </fragment>
+
+    <!-- 1RM Calculator -->
+    <fragment
+        android:id="@+id/oneRepMaxFragment"
+        android:name="com.biglifts.workouttracker.ui.calculator.OneRepMaxFragment"
+        android:label="1RM Calculator"
+        tools:layout="@layout/fragment_one_rep_max" />
+
+    <!-- Workout Templates -->
+    <fragment
+        android:id="@+id/workoutTemplatesFragment"
+        android:name="com.biglifts.workouttracker.ui.templates.WorkoutTemplatesFragment"
+        android:label="Templates"
+        tools:layout="@layout/fragment_workout_templates" />
+
+    <!-- Volume Analytics -->
+    <fragment
+        android:id="@+id/volumeByMuscleFragment"
+        android:name="com.biglifts.workouttracker.ui.analytics.VolumeByMuscleFragment"
+        android:label="Volume Analytics"
+        tools:layout="@layout/fragment_volume_by_muscle" />
+
+    <!-- Login (for logout navigation) -->
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.biglifts.workouttracker.ui.auth.LoginFragment"
+        android:label="Login"
+        tools:layout="@layout/fragment_login" />
+
+</navigation>
