@@ -53,7 +53,7 @@
                         android:layout_height="wrap_content"
                         android:textSize="14sp"
                         android:textColor="@color/text_secondary"
-                        android:text="Loading..." />
+                        android:text="@string/loading" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -81,7 +81,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Duration"
+                                android:text="@string/duration"
                                 android:textSize="12sp"
                                 android:textColor="@color/text_secondary" />
 
@@ -106,7 +106,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Total Sets"
+                                android:text="@string/total_sets"
                                 android:textSize="12sp"
                                 android:textColor="@color/text_secondary" />
 
@@ -131,7 +131,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Volume"
+                                android:text="@string/volume_label"
                                 android:textSize="12sp"
                                 android:textColor="@color/text_secondary" />
 
@@ -166,7 +166,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Exercises"
+                android:text="@string/exercises_label"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:textColor="@color/text_primary"
@@ -183,7 +183,7 @@
                 android:id="@+id/tvNoExercises"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="No exercises recorded"
+                android:text="@string/no_exercises_recorded"
                 android:textAlignment="center"
                 android:textColor="@color/text_secondary"
                 android:visibility="gone"
@@ -198,7 +198,7 @@
         android:layout_width="match_parent"
         android:layout_height="56dp"
         android:layout_margin="16dp"
-        android:text="Start Workout"
+        android:text="@string/start_workout"
         android:textSize="16sp"
         app:cornerRadius="12dp"
         app:layout_constraintBottom_toBottomOf="parent" />

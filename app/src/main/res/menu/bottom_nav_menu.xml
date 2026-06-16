@@ -3,21 +3,21 @@
     <item
         android:id="@+id/homeTab"
         android:icon="@drawable/ic_home"
-        android:title="Home" />
+        android:title="@string/home" />
     <item
         android:id="@+id/templatesTab"
         android:icon="@drawable/ic_fitness"
-        android:title="Templates" />
+        android:title="@string/templates" />
     <item
         android:id="@+id/workoutsTab"
         android:icon="@drawable/ic_fitness"
-        android:title="Workouts" />
+        android:title="@string/workouts" />
     <item
         android:id="@+id/exercisesTab"
         android:icon="@drawable/ic_exercise"
-        android:title="Exercises" />
+        android:title="@string/exercises" />
     <item
         android:id="@+id/profileTab"
         android:icon="@drawable/ic_person"
-        android:title="Profile" />
+        android:title="@string/profile" />
 </menu>

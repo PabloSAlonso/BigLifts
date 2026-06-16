@@ -5,6 +5,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import com.biglifts.workouttracker.R
 import com.biglifts.workouttracker.data.api.ApiClient
 import com.biglifts.workouttracker.data.api.CreateTemplateRequest
 import com.biglifts.workouttracker.data.api.TemplateExerciseRequest
@@ -51,7 +52,7 @@ class WorkoutTemplatesViewModel @Inject constructor(
         viewModelScope.launch {
             try {
                 val request = CreateTemplateRequest(
-                    name = "New Template",
+                    name = getApplication<Application>().getString(R.string.new_template_default),
                     category = "strength",
                     splitDay = null,
                     goal = "strength",
@@ -62,7 +63,7 @@ class WorkoutTemplatesViewModel @Inject constructor(
                     loadTemplates()
                 }
             } catch (e: Exception) {
-                _error.value = "Failed to create template: ${e.localizedMessage}"
+                _error.value = "${getApplication<Application>().getString(R.string.failed_create_template)} ${e.localizedMessage}"
             }
         }
     }
@@ -77,7 +78,7 @@ class WorkoutTemplatesViewModel @Inject constructor(
                 api.deleteTemplate(template.id)
                 loadTemplates()
             } catch (e: Exception) {
-                _error.value = "Failed to delete template: ${e.localizedMessage}"
+                _error.value = "${getApplication<Application>().getString(R.string.failed_delete_template)} ${e.localizedMessage}"
             }
         }
     }
@@ -90,7 +91,7 @@ class WorkoutTemplatesViewModel @Inject constructor(
                     _navigateToActiveWorkout.value = session.id
                 }
             } catch (e: Exception) {
-                _error.value = "Failed to start from template: ${e.localizedMessage}"
+                _error.value = "${getApplication<Application>().getString(R.string.failed_start_template)} ${e.localizedMessage}"
             }
         }
     }

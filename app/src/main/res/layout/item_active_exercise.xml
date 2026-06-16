@@ -28,7 +28,7 @@
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:src="@drawable/ic_close"
-                android:contentDescription="Remove"
+                android:contentDescription="@string/remove"
                 android:layout_marginEnd="8dp"
                 android:tint="@color/text_secondary" />
 
@@ -87,7 +87,7 @@
             <TextView
                 android:layout_width="30dp"
                 android:layout_height="wrap_content"
-                android:text="Set"
+                android:text="@string/set_header"
                 android:textSize="11sp"
                 android:textStyle="bold"
                 android:textColor="@color/text_secondary"
@@ -97,7 +97,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Previous"
+                android:text="@string/previous"
                 android:textSize="11sp"
                 android:textStyle="bold"
                 android:textColor="@color/text_secondary"
@@ -107,7 +107,7 @@
             <TextView
                 android:layout_width="65dp"
                 android:layout_height="wrap_content"
-                android:text="kg"
+                android:text="@string/kg"
                 android:textSize="11sp"
                 android:textStyle="bold"
                 android:textColor="@color/text_secondary"
@@ -116,7 +116,7 @@
             <TextView
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
-                android:text="Reps"
+                android:text="@string/reps"
                 android:textSize="11sp"
                 android:textStyle="bold"
                 android:textColor="@color/text_secondary"
@@ -125,7 +125,7 @@
             <TextView
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
-                android:text="RIR"
+                android:text="@string/rir"
                 android:textSize="11sp"
                 android:textStyle="bold"
                 android:textColor="@color/text_secondary"
@@ -134,7 +134,7 @@
             <TextView
                 android:layout_width="30dp"
                 android:layout_height="wrap_content"
-                android:text="Done"
+                android:text="@string/done"
                 android:textSize="11sp"
                 android:textStyle="bold"
                 android:textColor="@color/text_secondary"
@@ -153,7 +153,7 @@
             style="@style/Widget.MaterialComponents.Button.TextButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="+ Add Set"
+            android:text="@string/add_set"
             android:textColor="@color/primary"
             android:layout_marginTop="4dp" />
 

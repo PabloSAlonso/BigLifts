@@ -6,6 +6,7 @@ import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.biglifts.workouttracker.R
 import com.biglifts.workouttracker.data.models.WorkoutSession
 import com.biglifts.workouttracker.databinding.ItemWorkoutHistoryBinding
 import java.time.LocalDateTime
@@ -42,19 +43,20 @@ class WorkoutHistoryAdapter(
             binding.tvDate.text = startedAt?.let { date ->
                 val now = LocalDateTime.now()
                 val daysAgo = ChronoUnit.DAYS.between(date.toLocalDate(), now.toLocalDate())
+                val timeStr = date.format(DateTimeFormatter.ofPattern("h:mm a"))
                 when {
-                    daysAgo == 0L -> "Today, ${date.format(DateTimeFormatter.ofPattern("h:mm a"))}"
-                    daysAgo == 1L -> "Yesterday, ${date.format(DateTimeFormatter.ofPattern("h:mm a"))}"
-                    daysAgo < 7L -> "${daysAgo}d ago, ${date.format(DateTimeFormatter.ofPattern("h:mm a"))}"
+                    daysAgo == 0L -> itemView.context.getString(R.string.today_format, timeStr)
+                    daysAgo == 1L -> itemView.context.getString(R.string.yesterday_format, timeStr)
+                    daysAgo < 7L -> itemView.context.getString(R.string.days_ago_format, daysAgo, timeStr)
                     else -> date.format(DateTimeFormatter.ofPattern("MMM d, h:mm a"))
                 }
-            } ?: "Unknown date"
+            } ?: itemView.context.getString(R.string.unknown_date)
 
             // Duration
-            binding.tvDuration.text = session.durationMinutes?.let { "${it}min" } ?: "--"
+            binding.tvDuration.text = session.durationMinutes?.let { itemView.context.getString(R.string.min_count_format, it) } ?: "--"
 
             // Sets
-            binding.tvSets.text = session.totalSets?.let { "${it} sets" } ?: "-- sets"
+            binding.tvSets.text = session.totalSets?.let { itemView.context.getString(R.string.sets_format, it) } ?: "-- " + itemView.context.getString(R.string.sets)
 
             // Volume
             binding.tvVolume.text = session.totalVolume?.let {
@@ -63,7 +65,7 @@ class WorkoutHistoryAdapter(
             } ?: "--"
 
             // RPE
-            binding.tvRpe.text = session.avgRpe?.let { "RPE ${String.format("%.1f", it)}" } ?: ""
+            binding.tvRpe.text = session.avgRpe?.let { itemView.context.getString(R.string.rpe_format, String.format("%.1f", it)) } ?: ""
 
             // Completed indicator
             val isCompleted = session.completedAt != null

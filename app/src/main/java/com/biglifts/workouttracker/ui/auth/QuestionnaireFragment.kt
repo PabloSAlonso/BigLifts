@@ -62,7 +62,7 @@ class QuestionnaireFragment : Fragment() {
         }
 
         binding.sliderDaysPerWeek.addOnChangeListener { _, value, _ ->
-            binding.tvDaysPerWeek.text = "${value.toInt()} days per week"
+            binding.tvDaysPerWeek.text = String.format(getString(R.string.days_per_week_format), value.toInt())
         }
     }
 
@@ -81,7 +81,7 @@ class QuestionnaireFragment : Fragment() {
 
         binding.progressBar.progress = (currentStep * 100) / totalSteps
         binding.btnBack.isVisible = currentStep > 1
-        binding.btnNext.text = if (currentStep == totalSteps) "Finish" else "Next"
+        binding.btnNext.text = if (currentStep == totalSteps) getString(R.string.finish) else getString(R.string.next)
     }
 
     private fun validateCurrentStep(): Boolean {
@@ -89,43 +89,43 @@ class QuestionnaireFragment : Fragment() {
             1 -> {
                 val age = binding.etAge.text.toString().toIntOrNull()
                 if (age == null || age < 14 || age > 120) {
-                    binding.tilAge.error = "Enter valid age (14-120)"
+                    binding.tilAge.error = getString(R.string.enter_valid_age)
                     return false
                 }
                 binding.tilAge.error = null
 
                 if (binding.chipGroupGender.checkedChipId == View.NO_ID) {
-                    Snackbar.make(binding.root, "Select gender", Snackbar.LENGTH_SHORT).show()
+                    Snackbar.make(binding.root, getString(R.string.select_gender), Snackbar.LENGTH_SHORT).show()
                     return false
                 }
 
                 val height = binding.etHeight.text.toString().toDoubleOrNull()
                 if (height == null || height < 100 || height > 250) {
-                    binding.tilHeight.error = "Enter valid height"
+                    binding.tilHeight.error = getString(R.string.enter_valid_height)
                     return false
                 }
                 binding.tilHeight.error = null
 
                 val weight = binding.etWeight.text.toString().toDoubleOrNull()
                 if (weight == null || weight < 30 || weight > 300) {
-                    binding.tilWeight.error = "Enter valid weight"
+                    binding.tilWeight.error = getString(R.string.enter_valid_weight)
                     return false
                 }
                 binding.tilWeight.error = null
             }
             2 -> {
                 if (binding.rgActivityLevel.checkedRadioButtonId == View.NO_ID) {
-                    Snackbar.make(binding.root, "Select activity level", Snackbar.LENGTH_SHORT).show()
+                    Snackbar.make(binding.root, getString(R.string.select_activity_level), Snackbar.LENGTH_SHORT).show()
                     return false
                 }
             }
             3 -> {
                 if (binding.chipGroupExperience.checkedChipId == View.NO_ID) {
-                    Snackbar.make(binding.root, "Select experience level", Snackbar.LENGTH_SHORT).show()
+                    Snackbar.make(binding.root, getString(R.string.select_experience), Snackbar.LENGTH_SHORT).show()
                     return false
                 }
                 if (binding.rgGoal.checkedRadioButtonId == View.NO_ID) {
-                    Snackbar.make(binding.root, "Select your goal", Snackbar.LENGTH_SHORT).show()
+                    Snackbar.make(binding.root, getString(R.string.select_goal), Snackbar.LENGTH_SHORT).show()
                     return false
                 }
             }

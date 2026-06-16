@@ -118,12 +118,12 @@ class WorkoutHistoryFragment : Fragment() {
 
     private fun showDeleteDialog(workout: WorkoutSession) {
         com.google.android.material.dialog.MaterialAlertDialogBuilder(requireContext())
-            .setTitle("Delete Workout")
-            .setMessage("Delete \"${workout.name}\"?")
-            .setPositiveButton("Delete") { _, _ ->
+            .setTitle(getString(R.string.delete_workout))
+            .setMessage(String.format(getString(R.string.delete_workout_confirm), workout.name))
+            .setPositiveButton(getString(R.string.delete)) { _, _ ->
                 viewModel.deleteWorkout(workout.id ?: "")
             }
-            .setNegativeButton("Cancel", null)
+            .setNegativeButton(getString(R.string.cancel), null)
             .show()
     }
 

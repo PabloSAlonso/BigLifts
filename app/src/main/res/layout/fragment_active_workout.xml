@@ -10,14 +10,14 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         app:layout_constraintTop_toTopOf="parent"
-        app:title="Active Workout"
+        app:title="@string/active_workout"
         app:navigationIcon="@drawable/ic_close" />
 
     <TextView
         android:id="@+id/tvWorkoutName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Workout Name"
+        android:text="@string/workout_name"
         android:textSize="24sp"
         android:textStyle="bold"
         android:padding="16dp"
@@ -57,7 +57,7 @@
                 android:id="@+id/tvRestLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="REST"
+                android:text="@string/rest"
                 android:textSize="12sp"
                 android:textColor="@color/primary"
                 android:textStyle="bold"
@@ -83,7 +83,7 @@
                 style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Pause"
+                android:text="@string/pause"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/btnAddTime" />
@@ -93,7 +93,7 @@
                 style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="+15s"
+                android:text="@string/add_15s"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/btnStopTimer" />
@@ -103,7 +103,7 @@
                 style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Skip"
+                android:text="@string/skip"
                 android:textColor="?attr/colorError"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -117,7 +117,7 @@
         android:id="@+id/tvNoExercises"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="No exercises yet.\nTap 'Add Exercise' to start."
+        android:text="@string/no_exercises_yet"
         android:textAlignment="center"
         android:textColor="?android:attr/textColorSecondary"
         android:visibility="gone"
@@ -140,7 +140,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:text="Add Exercise"
+        android:text="@string/add_exercise"
         app:cornerRadius="8dp"
         app:layout_constraintBottom_toTopOf="@id/btnFinishWorkout" />
 
@@ -149,7 +149,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:text="Finish Workout"
+        android:text="@string/finish_workout"
         app:cornerRadius="8dp"
         app:layout_constraintBottom_toBottomOf="parent" />
 

@@ -3,6 +3,7 @@ package com.biglifts.workouttracker.ui.home
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
+import com.biglifts.workouttracker.R
 import com.biglifts.workouttracker.data.api.ApiClient
 import com.biglifts.workouttracker.data.api.StatsResponse
 import com.biglifts.workouttracker.data.models.WorkoutSession
@@ -39,7 +40,7 @@ class HomeViewModel @Inject constructor(
                 val stats = apiClient.getStats()
                 _stats.value = stats
             } catch (e: Exception) {
-                _error.value = "Failed to load data: ${e.localizedMessage}"
+                _error.value = "${getApplication<Application>().getString(R.string.failed_load_data)} ${e.localizedMessage}"
             }
         }
     }

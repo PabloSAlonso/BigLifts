@@ -10,6 +10,7 @@ import android.os.Build
 import android.os.CountDownTimer
 import androidx.core.app.NotificationCompat
 import androidx.lifecycle.ViewModel
+import com.biglifts.workouttracker.R
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -104,10 +105,10 @@ class RestTimerViewModel @Inject constructor() : ViewModel() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val channel = NotificationChannel(
                 "rest_timer",
-                "Rest Timer",
+                context.getString(R.string.rest_timer),
                 NotificationManager.IMPORTANCE_HIGH
             ).apply {
-                description = "Timer finished"
+                description = context.getString(R.string.timer_finished)
                 enableVibration(true)
             }
             notificationManager.createNotificationChannel(channel)
@@ -116,8 +117,8 @@ class RestTimerViewModel @Inject constructor() : ViewModel() {
         val sound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
         val notification = NotificationCompat.Builder(context, "rest_timer")
             .setSmallIcon(com.biglifts.workouttracker.R.drawable.ic_timer)
-            .setContentTitle("Rest Timer")
-            .setContentText("Time to lift!")
+            .setContentTitle(context.getString(R.string.rest_timer))
+            .setContentText(context.getString(R.string.time_to_lift))
             .setSound(sound)
             .setVibrate(longArrayOf(0, 500, 200, 500))
             .setAutoCancel(true)

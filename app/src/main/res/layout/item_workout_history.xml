@@ -28,7 +28,7 @@
                 android:layout_width="10dp"
                 android:layout_height="10dp"
                 android:src="@drawable/ic_check_circle"
-                android:contentDescription="Completed"
+                android:contentDescription="@string/completed"
                 android:layout_marginEnd="8dp"
                 android:tint="@color/success" />
 
@@ -95,7 +95,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Duration"
+                    android:text="@string/duration"
                     android:textSize="11sp"
                     android:textColor="@color/text_secondary" />
 
@@ -125,7 +125,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Total Sets"
+                    android:text="@string/total_sets"
                     android:textSize="11sp"
                     android:textColor="@color/text_secondary" />
 
@@ -155,7 +155,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Volume"
+                    android:text="@string/volume_label"
                     android:textSize="11sp"
                     android:textColor="@color/text_secondary" />
 

@@ -10,7 +10,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        app:title="Add Measurement"
+        app:title="@string/add_measurement"
         app:navigationIcon="@drawable/ic_back" />
 
     <ScrollView
@@ -27,7 +27,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Weight & Body Fat"
+                android:text="@string/weight_body_fat"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 android:textColor="@color/primary" />
@@ -36,7 +36,7 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Weight (kg)"
+                android:hint="@string/weight_kg_hint"
                 android:layout_marginTop="8dp">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -51,7 +51,7 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Body Fat %"
+                android:hint="@string/body_fat_hint"
                 android:layout_marginTop="8dp">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -71,7 +71,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Body Measurements (cm)"
+                android:text="@string/body_measurements_cm"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 android:textColor="@color/primary" />
@@ -87,7 +87,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="Neck"
+                    android:hint="@string/neck_hint"
                     android:layout_marginEnd="8dp">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -103,7 +103,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="Shoulders">
+                    android:hint="@string/shoulders_hint">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/etShoulders"
@@ -119,7 +119,7 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Chest"
+                android:hint="@string/chest_hint"
                 android:layout_marginTop="8dp">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -141,7 +141,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="Left Bicep"
+                    android:hint="@string/left_bicep"
                     android:layout_marginEnd="8dp">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -157,7 +157,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="Right Bicep">
+                    android:hint="@string/right_bicep">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/etRightBicep"
@@ -180,7 +180,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="Waist"
+                    android:hint="@string/waist_hint"
                     android:layout_marginEnd="8dp">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -196,7 +196,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="Hips">
+                    android:hint="@string/hips_hint">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/etHips"
@@ -219,7 +219,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="Left Thigh"
+                    android:hint="@string/left_thigh"
                     android:layout_marginEnd="8dp">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -235,7 +235,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="Right Thigh">
+                    android:hint="@string/right_thigh">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/etRightThigh"
@@ -258,7 +258,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="Left Calf"
+                    android:hint="@string/left_calf"
                     android:layout_marginEnd="8dp">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -274,7 +274,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="Right Calf">
+                    android:hint="@string/right_calf">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/etRightCalf"
@@ -290,7 +290,7 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Notes (optional)"
+                android:hint="@string/notes_optional"
                 android:layout_marginTop="16dp">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -311,7 +311,7 @@
         android:layout_width="match_parent"
         android:layout_height="56dp"
         android:layout_margin="16dp"
-        android:text="Save"
+        android:text="@string/save"
         app:cornerRadius="12dp" />
 
 </LinearLayout>

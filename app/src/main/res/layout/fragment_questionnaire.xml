@@ -11,7 +11,7 @@
         android:id="@+id/tvTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Let's get to know you"
+        android:text="@string/lets_get_to_know_you"
         android:textSize="28sp"
         android:textStyle="bold"
         android:textColor="@color/text_primary"
@@ -22,7 +22,7 @@
         android:id="@+id/tvSubtitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="This helps us personalize your experience"
+        android:text="@string/personalize_experience"
         android:textSize="14sp"
         android:textColor="@color/text_secondary"
         app:layout_constraintTop_toBottomOf="@id/tvTitle"
@@ -59,7 +59,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Basic Information"
+                    android:text="@string/basic_information"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     android:textColor="@color/primary" />
@@ -69,7 +69,7 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Age"
+                    android:hint="@string/age_hint"
                     android:layout_marginTop="16dp">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -83,7 +83,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Gender"
+                    android:text="@string/gender"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     android:layout_marginTop="24dp" />
@@ -100,21 +100,21 @@
                         style="@style/Widget.MaterialComponents.Chip.Choice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Male" />
+                        android:text="@string/male" />
 
                     <com.google.android.material.chip.Chip
                         android:id="@+id/chipFemale"
                         style="@style/Widget.MaterialComponents.Chip.Choice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Female" />
+                        android:text="@string/female" />
 
                     <com.google.android.material.chip.Chip
                         android:id="@+id/chipOther"
                         style="@style/Widget.MaterialComponents.Chip.Choice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Other" />
+                        android:text="@string/other" />
 
                 </com.google.android.material.chip.ChipGroup>
 
@@ -123,7 +123,7 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Height (cm)"
+                    android:hint="@string/height_hint"
                     android:layout_marginTop="16dp">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -139,7 +139,7 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Current Weight (kg)"
+                    android:hint="@string/current_weight_hint"
                     android:layout_marginTop="12dp">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -163,7 +163,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Activity Level"
+                    android:text="@string/activity_level"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     android:textColor="@color/primary" />
@@ -171,7 +171,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="How active are you outside of training?"
+                    android:text="@string/activity_level_description"
                     android:textSize="14sp"
                     android:textColor="@color/text_secondary"
                     android:layout_marginTop="8dp" />
@@ -186,14 +186,14 @@
                         android:id="@+id/rbSedentary"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Sedentary"
+                        android:text="@string/sedentary"
                         android:textSize="16sp"
                         android:padding="12dp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Desk job, little movement"
+                        android:text="@string/sedentary_desc"
                         android:textSize="12sp"
                         android:textColor="@color/text_secondary"
                         android:paddingStart="48dp" />
@@ -202,14 +202,14 @@
                         android:id="@+id/rbLight"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Lightly Active"
+                        android:text="@string/lightly_active"
                         android:textSize="16sp"
                         android:padding="12dp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Light walks, some standing"
+                        android:text="@string/lightly_active_desc"
                         android:textSize="12sp"
                         android:textColor="@color/text_secondary"
                         android:paddingStart="48dp" />
@@ -218,14 +218,14 @@
                         android:id="@+id/rbModerate"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Moderately Active"
+                        android:text="@string/moderately_active"
                         android:textSize="16sp"
                         android:padding="12dp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Regular walks, active lifestyle"
+                        android:text="@string/moderately_active_desc"
                         android:textSize="12sp"
                         android:textColor="@color/text_secondary"
                         android:paddingStart="48dp" />
@@ -234,14 +234,14 @@
                         android:id="@+id/rbActive"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Active"
+                        android:text="@string/active"
                         android:textSize="16sp"
                         android:padding="12dp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Physical job or daily sports"
+                        android:text="@string/active_desc"
                         android:textSize="12sp"
                         android:textColor="@color/text_secondary"
                         android:paddingStart="48dp" />
@@ -250,14 +250,14 @@
                         android:id="@+id/rbVeryActive"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Very Active"
+                        android:text="@string/very_active"
                         android:textSize="16sp"
                         android:padding="12dp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Athlete level, intense daily activity"
+                        android:text="@string/very_active_desc"
                         android:textSize="12sp"
                         android:textColor="@color/text_secondary"
                         android:paddingStart="48dp" />
@@ -277,7 +277,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Training Experience"
+                    android:text="@string/training_experience"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     android:textColor="@color/primary" />
@@ -294,28 +294,28 @@
                         style="@style/Widget.MaterialComponents.Chip.Choice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Beginner (0-1 year)" />
+                        android:text="@string/beginner" />
 
                     <com.google.android.material.chip.Chip
                         android:id="@+id/chipIntermediate"
                         style="@style/Widget.MaterialComponents.Chip.Choice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Intermediate (1-3 years)" />
+                        android:text="@string/intermediate" />
 
                     <com.google.android.material.chip.Chip
                         android:id="@+id/chipAdvanced"
                         style="@style/Widget.MaterialComponents.Chip.Choice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Advanced (3+ years)" />
+                        android:text="@string/advanced" />
 
                 </com.google.android.material.chip.ChipGroup>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Primary Goal"
+                    android:text="@string/primary_goal"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     android:textColor="@color/primary"
@@ -331,7 +331,7 @@
                         android:id="@+id/rbLoseFat"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Lose Fat"
+                        android:text="@string/lose_fat"
                         android:textSize="16sp"
                         android:padding="12dp" />
 
@@ -339,7 +339,7 @@
                         android:id="@+id/rbGainMuscle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Gain Muscle"
+                        android:text="@string/gain_muscle"
                         android:textSize="16sp"
                         android:padding="12dp" />
 
@@ -347,7 +347,7 @@
                         android:id="@+id/rbStrength"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Get Stronger"
+                        android:text="@string/get_stronger"
                         android:textSize="16sp"
                         android:padding="12dp" />
 
@@ -355,7 +355,7 @@
                         android:id="@+id/rbMaintain"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Maintain Fitness"
+                        android:text="@string/maintain_fitness"
                         android:textSize="16sp"
                         android:padding="12dp" />
 
@@ -363,7 +363,7 @@
                         android:id="@+id/rbGeneral"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="General Fitness"
+                        android:text="@string/general_fitness"
                         android:textSize="16sp"
                         android:padding="12dp" />
 
@@ -382,7 +382,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Training Schedule"
+                    android:text="@string/training_schedule"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     android:textColor="@color/primary" />
@@ -390,7 +390,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="How many days per week can you train?"
+                    android:text="@string/days_per_week_question"
                     android:textSize="14sp"
                     android:textColor="@color/text_secondary"
                     android:layout_marginTop="8dp" />
@@ -409,7 +409,7 @@
                     android:id="@+id/tvDaysPerWeek"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="4 days per week"
+                    android:text="@string/days_per_week_format"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     android:textAlignment="center"
@@ -420,7 +420,7 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Target Weight (kg) - Optional"
+                    android:hint="@string/target_weight_hint"
                     android:layout_marginTop="32dp">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -436,7 +436,7 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Injuries or limitations - Optional"
+                    android:hint="@string/injuries_hint"
                     android:layout_marginTop="12dp">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -453,7 +453,7 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Available equipment - Optional"
+                    android:hint="@string/equipment_hint"
                     android:layout_marginTop="12dp">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -462,7 +462,7 @@
                         android:layout_height="wrap_content"
                         android:inputType="textMultiLine"
                         android:minLines="2"
-                        android:hint="e.g., Barbell, Dumbbells, Cable, Rack..." />
+                        android:hint="@string/equipment_example" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -477,7 +477,7 @@
         style="@style/Widget.MaterialComponents.Button.TextButton"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
-        android:text="Back"
+        android:text="@string/back"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -487,7 +487,7 @@
         android:id="@+id/btnNext"
         android:layout_width="0dp"
         android:layout_height="56dp"
-        android:text="Next"
+        android:text="@string/next"
         android:textSize="16sp"
         app:cornerRadius="12dp"
         app:layout_constraintBottom_toBottomOf="parent"

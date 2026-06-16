@@ -32,7 +32,7 @@ class NewWorkoutFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val defaultName = "Workout - ${SimpleDateFormat("MMM d", Locale.getDefault()).format(Date())}"
+        val defaultName = String.format(getString(R.string.workout_name_default), SimpleDateFormat("MMM d", Locale.getDefault()).format(Date()))
         binding.etWorkoutName.setText(defaultName)
 
         binding.toolbar.setNavigationOnClickListener { findNavController().navigateUp() }
@@ -40,7 +40,7 @@ class NewWorkoutFragment : Fragment() {
         binding.btnStart.setOnClickListener {
             val name = binding.etWorkoutName.text.toString().trim()
             if (name.isBlank()) {
-                binding.tilWorkoutName.error = "Enter workout name"
+                binding.tilWorkoutName.error = getString(R.string.enter_workout_name)
                 return@setOnClickListener
             }
 

@@ -11,7 +11,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="1RM Calculator"
+        android:text="@string/one_rm_calculator"
         android:textSize="24sp"
         android:textStyle="bold"
         android:textColor="@color/text_primary" />
@@ -19,7 +19,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Estimate your one-rep max"
+        android:text="@string/estimate_one_rep_max"
         android:textSize="14sp"
         android:textColor="@color/text_secondary"
         android:layout_marginTop="4dp" />
@@ -35,7 +35,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:hint="Weight (kg)"
+            android:hint="@string/weight_kg_hint"
             android:layout_marginEnd="8dp">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -51,7 +51,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:hint="Reps">
+            android:hint="@string/reps_hint">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etReps"
@@ -67,7 +67,7 @@
         android:id="@+id/btnCalculate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Calculate"
+        android:text="@string/calculate"
         android:layout_marginTop="16dp"
         app:cornerRadius="12dp" />
 
@@ -106,7 +106,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Formulas"
+                        android:text="@string/formulas"
                         android:textSize="16sp"
                         android:textStyle="bold" />
 
@@ -120,7 +120,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Brzycki:"
+                            android:text="@string/brzycki"
                             android:textSize="14sp" />
 
                         <TextView
@@ -143,7 +143,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Epley:"
+                            android:text="@string/epley"
                             android:textSize="14sp" />
 
                         <TextView
@@ -166,7 +166,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Lander:"
+                            android:text="@string/lander"
                             android:textSize="14sp" />
 
                         <TextView
@@ -189,7 +189,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Lombardi:"
+                            android:text="@string/lombardi"
                             android:textSize="14sp" />
 
                         <TextView
@@ -212,7 +212,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="O'Conner:"
+                            android:text="@string/oconner"
                             android:textSize="14sp" />
 
                         <TextView
@@ -235,7 +235,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Mayhew:"
+                            android:text="@string/mayhew"
                             android:textSize="14sp" />
 
                         <TextView
@@ -268,7 +268,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Training Percentages"
+                        android:text="@string/training_percentages"
                         android:textSize="16sp"
                         android:textStyle="bold" />
 
@@ -279,7 +279,7 @@
                         android:layout_marginTop="8dp"
                         android:textSize="14sp"
                         android:fontFamily="monospace"
-                        android:text="Calculate to see percentages" />
+                        android:text="@string/calculate_to_see_percentages" />
 
                 </LinearLayout>
 

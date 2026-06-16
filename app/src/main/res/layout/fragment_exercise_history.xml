@@ -45,7 +45,7 @@
                         android:textSize="20sp"
                         android:textStyle="bold"
                         android:textColor="@android:color/white"
-                        android:text="No PR yet" />
+                        android:text="@string/no_pr_yet" />
 
                 </LinearLayout>
 
@@ -78,7 +78,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Max Weight"
+                        android:text="@string/max_weight"
                         android:textSize="11sp"
                         android:textColor="@color/text_secondary" />
 
@@ -104,7 +104,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Total Volume"
+                        android:text="@string/total_volume"
                         android:textSize="11sp"
                         android:textColor="@color/text_secondary" />
 
@@ -130,7 +130,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Avg RPE"
+                        android:text="@string/avg_rpe_label"
                         android:textSize="11sp"
                         android:textColor="@color/text_secondary" />
 
@@ -156,7 +156,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Sets"
+                        android:text="@string/sets"
                         android:textSize="11sp"
                         android:textColor="@color/text_secondary" />
 
@@ -168,7 +168,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Estimated 1RM Progression"
+                android:text="@string/estimated_1rm_progression"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 android:layout_marginTop="20dp" />
@@ -183,7 +183,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Volume Progression"
+                android:text="@string/volume_progression"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 android:layout_marginTop="20dp" />

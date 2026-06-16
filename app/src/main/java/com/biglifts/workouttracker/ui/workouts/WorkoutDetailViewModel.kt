@@ -3,6 +3,7 @@ package com.biglifts.workouttracker.ui.workouts
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
+import com.biglifts.workouttracker.R
 import com.biglifts.workouttracker.data.api.ApiClient
 import com.biglifts.workouttracker.data.api.SessionExerciseWithExercise
 import com.biglifts.workouttracker.data.models.WorkoutSession
@@ -45,7 +46,7 @@ class WorkoutDetailViewModel @Inject constructor(
                 val exercises = apiClient.getSessionExercises(workoutId)
                 _exercises.value = exercises
             } catch (e: Exception) {
-                _error.value = "Failed to load workout details: ${e.localizedMessage}"
+                _error.value = "${getApplication<Application>().getString(R.string.failed_load_workout_detail)} ${e.localizedMessage}"
             } finally {
                 _isLoading.value = false
             }

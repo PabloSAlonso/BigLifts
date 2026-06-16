@@ -3,6 +3,7 @@ package com.biglifts.workouttracker.ui.workouts
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
+import com.biglifts.workouttracker.R
 import com.biglifts.workouttracker.data.api.ApiClient
 import com.biglifts.workouttracker.data.models.WorkoutSession
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -37,7 +38,7 @@ class WorkoutHistoryViewModel @Inject constructor(
                 _workouts.value = response.data
             } catch (e: Exception) {
                 _workouts.value = emptyList()
-                _error.value = "Failed to load workouts: ${e.localizedMessage}"
+                _error.value = "${getApplication<Application>().getString(R.string.failed_load_workouts)} ${e.localizedMessage}"
             } finally {
                 _isLoading.value = false
             }
@@ -50,7 +51,7 @@ class WorkoutHistoryViewModel @Inject constructor(
                 apiClient.deleteWorkout(id)
                 _workouts.value = _workouts.value.filter { it.id != id }
             } catch (e: Exception) {
-                _error.value = "Failed to delete workout: ${e.localizedMessage}"
+                _error.value = "${getApplication<Application>().getString(R.string.failed_delete_workout)} ${e.localizedMessage}"
             }
         }
     }

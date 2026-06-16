@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.biglifts.workouttracker.R
 import com.biglifts.workouttracker.databinding.ItemTemplateBinding
 import com.biglifts.workouttracker.data.models.WorkoutTemplate
 
@@ -19,9 +20,9 @@ class TemplateAdapter(
 
         fun bind(template: WorkoutTemplate) {
             binding.tvTemplateName.text = template.name
-            binding.tvExerciseCount.text = "${template.exerciseCount} exercises"
+            binding.tvExerciseCount.text = itemView.context.getString(R.string.exercises_count, template.exerciseCount)
             binding.tvCategory.text = template.category.uppercase()
-            binding.tvSplitDay.text = template.splitDay?.uppercase() ?: "CUSTOM"
+            binding.tvSplitDay.text = template.splitDay?.uppercase() ?: itemView.context.getString(R.string.custom)
             binding.tvGoal.text = template.goal.replaceFirstChar { it.uppercase() }
 
             binding.btnStart.setOnClickListener { onStartTemplate(template) }

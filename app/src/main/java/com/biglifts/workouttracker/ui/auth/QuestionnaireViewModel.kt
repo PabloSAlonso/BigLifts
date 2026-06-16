@@ -3,6 +3,7 @@ package com.biglifts.workouttracker.ui.auth
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
+import com.biglifts.workouttracker.R
 import com.biglifts.workouttracker.data.api.ApiClient
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -47,7 +48,7 @@ class QuestionnaireViewModel @Inject constructor(
             } catch (e: com.biglifts.workouttracker.data.api.ApiException) {
                 _uiState.value = AuthUiState.Error(e.message)
             } catch (e: Exception) {
-                _uiState.value = AuthUiState.Error("Connection error")
+                _uiState.value = AuthUiState.Error(getApplication<Application>().getString(R.string.connection_error))
             }
         }
     }

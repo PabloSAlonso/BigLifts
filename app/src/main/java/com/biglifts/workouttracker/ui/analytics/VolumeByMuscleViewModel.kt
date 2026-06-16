@@ -5,6 +5,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import com.biglifts.workouttracker.R
 import com.biglifts.workouttracker.data.api.ApiClient
 import com.biglifts.workouttracker.data.api.MuscleVolume
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -41,7 +42,7 @@ class VolumeByMuscleViewModel @Inject constructor(
                 _volumeData.value = response.volumeByMuscle
             } catch (e: Exception) {
                 _volumeData.value = emptyList()
-                _error.value = "Failed to load volume data: ${e.localizedMessage}"
+                _error.value = "${getApplication<Application>().getString(R.string.failed_load_volume)} ${e.localizedMessage}"
             } finally {
                 _isLoading.value = false
             }

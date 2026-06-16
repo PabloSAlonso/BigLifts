@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.biglifts.workouttracker.R
 import com.biglifts.workouttracker.data.models.WorkoutSession
 import com.biglifts.workouttracker.databinding.ItemRecentWorkoutBinding
 import java.time.LocalDateTime
@@ -40,14 +41,14 @@ class RecentWorkoutAdapter(
                 val now = LocalDateTime.now()
                 val daysAgo = ChronoUnit.DAYS.between(date.toLocalDate(), now.toLocalDate())
                 when {
-                    daysAgo == 0L -> "Today"
-                    daysAgo == 1L -> "Yesterday"
-                    daysAgo < 7L -> "${daysAgo}d ago"
+                    daysAgo == 0L -> itemView.context.getString(R.string.today)
+                    daysAgo == 1L -> itemView.context.getString(R.string.yesterday)
+                    daysAgo < 7L -> itemView.context.getString(R.string.days_ago, daysAgo)
                     else -> date.format(DateTimeFormatter.ofPattern("MMM d"))
                 }
             } ?: ""
 
-            binding.tvSets.text = session.totalSets?.let { "$it sets" } ?: ""
+            binding.tvSets.text = session.totalSets?.let { itemView.context.getString(R.string.sets_format, it) } ?: ""
 
             binding.root.setOnClickListener { onClick(session) }
         }

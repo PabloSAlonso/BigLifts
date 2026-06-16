@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         app:layout_constraintTop_toTopOf="parent"
-        app:title="Profile" />
+        app:title="@string/profile" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -42,13 +42,13 @@
                         android:layout_width="80dp"
                         android:layout_height="80dp"
                         android:src="@drawable/ic_person"
-                        android:contentDescription="Profile picture" />
+                        android:contentDescription="@string/profile_picture" />
 
                     <TextView
                         android:id="@+id/tvUsername"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Username"
+                        android:text="@string/username_hint"
                         android:textSize="20sp"
                         android:textStyle="bold"
                         android:layout_marginTop="8dp" />
@@ -89,13 +89,13 @@
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:src="@drawable/ic_settings"
-                            android:contentDescription="Settings" />
+                            android:contentDescription="@string/settings" />
 
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Settings"
+                            android:text="@string/settings"
                             android:textSize="16sp"
                             android:layout_marginStart="16dp" />
 
@@ -117,13 +117,13 @@
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:src="@drawable/ic_help"
-                            android:contentDescription="Help" />
+                            android:contentDescription="@string/help_support" />
 
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Help & Support"
+                            android:text="@string/help_support"
                             android:textSize="16sp"
                             android:layout_marginStart="16dp" />
 
@@ -148,13 +148,13 @@
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:src="@drawable/ic_fitness"
-                            android:contentDescription="Export workouts" />
+                            android:contentDescription="@string/export_workouts_csv" />
 
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Export Workouts (CSV)"
+                            android:text="@string/export_workouts_csv"
                             android:textSize="16sp"
                             android:layout_marginStart="16dp" />
 
@@ -179,13 +179,13 @@
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:src="@drawable/ic_fitness"
-                            android:contentDescription="Export measurements" />
+                            android:contentDescription="@string/export_measurements_csv" />
 
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Export Measurements (CSV)"
+                            android:text="@string/export_measurements_csv"
                             android:textSize="16sp"
                             android:layout_marginStart="16dp" />
 
@@ -202,7 +202,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
-                        android:text="Logout"
+                        android:text="@string/logout"
                         app:cornerRadius="8dp"
                         app:strokeColor="@color/design_default_color_error" />
 

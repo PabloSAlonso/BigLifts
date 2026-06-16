@@ -3,6 +3,7 @@ package com.biglifts.workouttracker.ui.workout
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
+import com.biglifts.workouttracker.R
 import com.biglifts.workouttracker.data.api.ApiClient
 import com.biglifts.workouttracker.data.api.SessionExerciseWithExercise
 import com.biglifts.workouttracker.data.models.Exercise
@@ -59,7 +60,7 @@ class ActiveWorkoutViewModel @Inject constructor(
                 _currentWorkout.value = workout
                 workoutId = workout.id
             } catch (e: Exception) {
-                _error.value = "Failed to create workout: ${e.localizedMessage}"
+                _error.value = "${getApplication<Application>().getString(R.string.failed_create_workout)} ${e.localizedMessage}"
             } finally {
                 _isLoading.value = false
             }
@@ -81,7 +82,7 @@ class ActiveWorkoutViewModel @Inject constructor(
                     val previousData = getPreviousExerciseData(se.exerciseId)
                     ActiveExerciseData(
                         exerciseId = se.exerciseId,
-                        exercise = se.exercises ?: Exercise(name = "Unknown", category = "other"),
+                        exercise = se.exercises ?: Exercise(name = getApplication<Application>().getString(R.string.unknown), category = "other"),
                         sessionExerciseId = se.id,
                         previousSets = previousData.first,
                         previousBestWeight = previousData.second,
@@ -90,7 +91,7 @@ class ActiveWorkoutViewModel @Inject constructor(
                 }
                 _activeExercises.value = activeExercises
             } catch (e: Exception) {
-                _error.value = "Failed to load workout: ${e.localizedMessage}"
+                _error.value = "${getApplication<Application>().getString(R.string.failed_load_workout)} ${e.localizedMessage}"
             } finally {
                 _isLoading.value = false
             }
@@ -124,7 +125,7 @@ class ActiveWorkoutViewModel @Inject constructor(
 
                 _activeExercises.value = _activeExercises.value + newExercise
             } catch (e: Exception) {
-                _error.value = "Failed to add exercise: ${e.localizedMessage}"
+                _error.value = "${getApplication<Application>().getString(R.string.failed_add_exercise)} ${e.localizedMessage}"
             } finally {
                 _isLoading.value = false
             }
@@ -159,7 +160,7 @@ class ActiveWorkoutViewModel @Inject constructor(
                 val createdSet = apiClient.createSet(newSet)
                 updateExerciseSets(exerciseId, exercise.sets + createdSet)
             } catch (e: Exception) {
-                _error.value = "Failed to add set: ${e.localizedMessage}"
+                _error.value = "${getApplication<Application>().getString(R.string.failed_add_set)} ${e.localizedMessage}"
             }
         }
     }
@@ -178,7 +179,7 @@ class ActiveWorkoutViewModel @Inject constructor(
                 val updatedSets = exercise.sets.map { if (it.id == set.id) set else it }
                 updateExerciseSets(exerciseId, updatedSets)
             } catch (e: Exception) {
-                _error.value = "Failed to update set: ${e.localizedMessage}"
+                _error.value = "${getApplication<Application>().getString(R.string.failed_update_set)} ${e.localizedMessage}"
             }
         }
     }
@@ -200,7 +201,7 @@ class ActiveWorkoutViewModel @Inject constructor(
                     } ?: System.currentTimeMillis())) / 60000).toInt()
                 ))
             } catch (e: Exception) {
-                _error.value = "Failed to finish workout: ${e.localizedMessage}"
+                _error.value = "${getApplication<Application>().getString(R.string.failed_finish_workout)} ${e.localizedMessage}"
             }
         }
     }
@@ -211,7 +212,7 @@ class ActiveWorkoutViewModel @Inject constructor(
                 try {
                     apiClient.deleteWorkout(it)
                 } catch (e: Exception) {
-                    _error.value = "Failed to discard workout: ${e.localizedMessage}"
+                    _error.value = "${getApplication<Application>().getString(R.string.failed_discard_workout)} ${e.localizedMessage}"
                 }
             }
         }

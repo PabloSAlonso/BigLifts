@@ -10,7 +10,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        app:title="Exercises" />
+        app:title="@string/exercises" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/searchLayout"
@@ -24,7 +24,7 @@
             android:id="@+id/etSearch"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Search exercises"
+            android:hint="@string/search_exercises"
             android:inputType="text" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -42,7 +42,7 @@
             style="@style/Widget.MaterialComponents.Chip.Choice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="All"
+            android:text="@string/all"
             android:checked="true" />
 
         <com.google.android.material.chip.Chip
@@ -50,42 +50,42 @@
             style="@style/Widget.MaterialComponents.Chip.Choice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Chest" />
+            android:text="@string/chest" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chipBack"
             style="@style/Widget.MaterialComponents.Chip.Choice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Back" />
+            android:text="@string/back_muscle" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chipLegs"
             style="@style/Widget.MaterialComponents.Chip.Choice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Legs" />
+            android:text="@string/legs" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chipShoulders"
             style="@style/Widget.MaterialComponents.Chip.Choice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Shoulders" />
+            android:text="@string/shoulders" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chipArms"
             style="@style/Widget.MaterialComponents.Chip.Choice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Arms" />
+            android:text="@string/arms" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chipCore"
             style="@style/Widget.MaterialComponents.Chip.Choice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Core" />
+            android:text="@string/core" />
 
     </com.google.android.material.chip.ChipGroup>
 

@@ -10,7 +10,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        app:title="Body Measurements"
+        app:title="@string/body_measurements"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
@@ -41,7 +41,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Latest"
+                        android:text="@string/latest"
                         android:textSize="14sp"
                         android:textColor="@color/text_secondary" />
 
@@ -70,7 +70,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Weight"
+                                android:text="@string/weight_label"
                                 android:textSize="12sp"
                                 android:textColor="@color/text_secondary" />
 
@@ -95,7 +95,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Body Fat"
+                                android:text="@string/body_fat"
                                 android:textSize="12sp"
                                 android:textColor="@color/text_secondary" />
 
@@ -110,7 +110,7 @@
                         android:layout_marginTop="8dp"
                         android:textSize="12sp"
                         android:textColor="@color/text_secondary"
-                        android:text="No measurements yet" />
+                        android:text="@string/no_measurements" />
 
                 </LinearLayout>
 
@@ -119,7 +119,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="History"
+                android:text="@string/history"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:layout_marginTop="24dp" />
@@ -135,7 +135,7 @@
                 android:id="@+id/tvEmpty"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="No measurements yet\nTap + to add your first"
+                android:text="@string/no_measurements_add"
                 android:textAlignment="center"
                 android:textColor="@color/text_secondary"
                 android:padding="32dp"
@@ -150,7 +150,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_add"
-        android:contentDescription="Add measurement"
+        android:contentDescription="@string/add_measurement"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_margin="16dp" />

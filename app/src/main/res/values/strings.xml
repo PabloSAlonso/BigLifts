@@ -1,32 +1,311 @@
 <resources>
+    <!-- App -->
     <string name="app_name">BigLifts</string>
+    <string name="tagline">Track. Progress. Lift.</string>
+    <string name="track_your_gains">Track your gains</string>
+
+    <!-- Navigation -->
     <string name="home">Home</string>
+    <string name="templates">Templates</string>
     <string name="workouts">Workouts</string>
     <string name="exercises">Exercises</string>
     <string name="profile">Profile</string>
-    <string name="start_workout">Start Workout</string>
-    <string name="save">Save</string>
+    <string name="back">Back</string>
+    <string name="next">Next</string>
+    <string name="finish">Finish</string>
     <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
     <string name="delete">Delete</string>
     <string name="edit">Edit</string>
     <string name="search">Search</string>
-    <string name="sets">Sets</string>
-    <string name="reps">Reps</string>
-    <string name="weight">Weight</string>
-    <string name="rest">Rest</string>
-    <string name="completed">Completed</string>
-    <string name="in_progress">In Progress</string>
-    <string name="no_workouts">No workouts yet\nTap + to start</string>
-    <string name="workout_name_hint">Workout name</string>
-    <string name="add_exercise">Add Exercise</string>
-    <string name="finish_workout">Finish Workout</string>
+    <string name="start">Start</string>
+    <string name="skip">Skip</string>
+    <string name="pause">Pause</string>
+    <string name="resume">Resume</string>
+    <string name="continue_str">Continue</string>
+    <string name="exit">Exit</string>
+    <string name="loading">Loading…</string>
+
+    <!-- Auth -->
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="create_account">Create Account</string>
+    <string name="already_have_account_login">Already have an account? Login</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="password_reset_coming_soon">Password reset coming soon</string>
+    <string name="account_created_login">Account created! Please login.</string>
     <string name="email_hint">Email</string>
     <string name="password_hint">Password</string>
     <string name="username_hint">Username</string>
-    <string name="login">Login</string>
-    <string name="register">Register</string>
-    <string name="forgot_password">Forgot Password?</string>
+    <string name="email_required">Email required</string>
+    <string name="invalid_email_format">Invalid email format</string>
+    <string name="password_required">Password required</string>
+    <string name="min_6_characters">Min 6 characters</string>
+    <string name="username_required">Username required</string>
+    <string name="min_3_characters">Min 3 characters</string>
+    <string name="enter_email_first">Enter your email first</string>
+    <string name="connection_error">Connection error. Please try again.</string>
+    <string name="email_already_registered">Email already registered</string>
+    <string name="invalid_email_password">Invalid email or password</string>
+    <string name="password_min_chars">Password must be at least 6 characters</string>
+    <string name="failed_load_profile">Failed to load profile</string>
     <string name="logout">Logout</string>
+
+    <!-- Questionnaire -->
+    <string name="lets_get_to_know_you">Let\'s get to know you</string>
+    <string name="personalize_experience">This helps us personalize your experience</string>
+    <string name="basic_information">Basic Information</string>
+    <string name="age_hint">Age</string>
+    <string name="gender">Gender</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="other">Other</string>
+    <string name="height_hint">Height (cm)</string>
+    <string name="current_weight_hint">Current Weight (kg)</string>
+    <string name="target_weight_hint">Target Weight (kg) - Optional</string>
+    <string name="injuries_hint">Injuries or limitations - Optional</string>
+    <string name="equipment_hint">Available equipment - Optional</string>
+    <string name="equipment_example">e.g., Barbell, Dumbbells, Cable, Rack…</string>
+    <string name="activity_level">Activity Level</string>
+    <string name="activity_level_description">How active are you outside of training?</string>
+    <string name="sedentary">Sedentary</string>
+    <string name="sedentary_desc">Desk job, little movement</string>
+    <string name="lightly_active">Lightly Active</string>
+    <string name="lightly_active_desc">Light walks, some standing</string>
+    <string name="moderately_active">Moderately Active</string>
+    <string name="moderately_active_desc">Regular walks, active lifestyle</string>
+    <string name="active">Active</string>
+    <string name="active_desc">Physical job or daily sports</string>
+    <string name="very_active">Very Active</string>
+    <string name="very_active_desc">Athlete level, intense daily activity</string>
+    <string name="training_experience">Training Experience</string>
+    <string name="beginner">Beginner (0-1 year)</string>
+    <string name="intermediate">Intermediate (1-3 years)</string>
+    <string name="advanced">Advanced (3+ years)</string>
+    <string name="primary_goal">Primary Goal</string>
+    <string name="lose_fat">Lose Fat</string>
+    <string name="gain_muscle">Gain Muscle</string>
+    <string name="get_stronger">Get Stronger</string>
+    <string name="maintain_fitness">Maintain Fitness</string>
+    <string name="general_fitness">General Fitness</string>
+    <string name="training_schedule">Training Schedule</string>
+    <string name="days_per_week_question">How many days per week can you train?</string>
+    <string name="days_per_week_format">%d days per week</string>
+    <string name="enter_valid_age">Enter valid age (14-120)</string>
+    <string name="select_gender">Select gender</string>
+    <string name="enter_valid_height">Enter valid height</string>
+    <string name="enter_valid_weight">Enter valid weight</string>
+    <string name="select_activity_level">Select activity level</string>
+    <string name="select_experience">Select experience level</string>
+    <string name="select_goal">Select your goal</string>
+
+    <!-- Home -->
+    <string name="ready_to_train">Ready to train?</string>
+    <string name="start_workout">Start Workout</string>
+    <string name="quick_actions">Quick Actions</string>
+    <string name="body_measurements_short">Body</string>
+    <string name="one_rm_calc_short">1RM Calc</string>
+    <string name="volume">Volume</string>
+    <string name="templates_short">Templates</string>
+    <string name="recent_workouts">Recent Workouts</string>
+    <string name="no_workouts_yet_start">No workouts yet\nStart your first one!</string>
+    <string name="total">Total</string>
+    <string name="this_week">This Week</string>
+    <string name="streak">Streak</string>
+    <string name="failed_load_data">Failed to load data: %s</string>
+
+    <!-- Workout -->
+    <string name="active_workout">Active Workout</string>
+    <string name="new_workout">New Workout</string>
+    <string name="workout_name">Workout Name</string>
+    <string name="workout_name_hint">Workout name</string>
+    <string name="name_your_workout">Name your workout</string>
+    <string name="workout_name_default">Workout - %s</string>
+    <string name="enter_workout_name">Enter workout name</string>
+    <string name="add_exercise">Add Exercise</string>
+    <string name="finish_workout">Finish Workout</string>
+    <string name="no_exercises_yet">No exercises yet.\nTap \'Add Exercise\' to start.</string>
+    <string name="finish_workout_question">Finish Workout?</string>
+    <string name="save_workout_session">Save this workout session?</string>
+    <string name="exit_workout_question">Exit Workout?</string>
+    <string name="workout_will_be_discarded">Current workout will be discarded.</string>
+    <string name="delete_workout">Delete Workout</string>
+    <string name="delete_workout_confirm">Delete \"%s\"?</string>
+    <string name="unknown_exercise">Unknown Exercise</string>
+    <string name="unknown">Unknown</string>
+    <string name="workout_default">Workout</string>
+
+    <!-- Sets & Reps -->
+    <string name="sets">Sets</string>
+    <string name="reps">Reps</string>
+    <string name="weight">Weight</string>
+    <string name="rir">RIR</string>
+    <string name="rpe">RPE</string>
+    <string name="kg">kg</string>
+    <string name="previous">Previous</string>
+    <string name="set_header">Set</string>
+    <string name="done">Done</string>
+    <string name="add_set">+ Add Set</string>
+    <string name="prev_format">Prev: %s kg x %s</string>
+    <string name="best_format">Best: %s kg x %s</string>
+    <string name="pr_format">PR: %s kg x %s</string>
+    <string name="sets_format">%d sets</string>
+    <string name="min_format">%d min</string>
+    <string name="rpe_format">RPE %s</string>
+
+    <!-- Rest Timer -->
+    <string name="rest">REST</string>
+    <string name="rest_timer">Rest Timer</string>
+    <string name="timer_finished">Timer finished</string>
+    <string name="time_to_lift">Time to lift!</string>
+    <string name="add_15s">+15s</string>
+
+    <!-- Intensity Techniques -->
+    <string name="dropset_short">DS</string>
+    <string name="restpause_short">RP</string>
+    <string name="myorep_short">MR</string>
+    <string name="cluster_short">CL</string>
+
+    <!-- Exercise Picker -->
+    <string name="select_exercise">Select Exercise</string>
+    <string name="search_exercises">Search exercises</string>
+    <string name="all">All</string>
+    <string name="chest">Chest</string>
+    <string name="back">Back_muscle</string>
+    <string name="legs">Legs</string>
+    <string name="shoulders">Shoulders</string>
+    <string name="arms">Arms</string>
+    <string name="core">Core</string>
+    <string name="bodyweight">Bodyweight</string>
+    <string name="remove">Remove</string>
+
+    <!-- Workout Detail -->
+    <string name="workout_detail">Workout Detail</string>
+    <string name="duration">Duration</string>
+    <string name="total_sets">Total Sets</string>
+    <string name="volume_label">Volume</string>
+    <string name="exercises_label">Exercises</string>
+    <string name="no_exercises_recorded">No exercises recorded</string>
+    <string name="avg_rpe">Avg RPE: %s</string>
+
+    <!-- Workout History -->
+    <string name="no_workouts">No workouts yet\nTap + to start</string>
+    <string name="new_workout_fab">New Workout</string>
+    <string name="unknown_date">Unknown date</string>
+    <string name="today">Today</string>
+    <string name="yesterday">Yesterday</string>
+    <string name="days_ago">%dd ago</string>
+    <string name="today_format">Today, %s</string>
+    <string name="yesterday_format">Yesterday, %s</string>
+    <string name="days_ago_format">%dd ago, %s</string>
+
+    <!-- Workout Templates -->
+    <string name="workout_routines">Workout Routines</string>
+    <string name="new_template">+ New</string>
+    <string name="no_templates_yet">No templates yet.\nCreate your first routine!</string>
+    <string name="exercises_count">%d exercises</string>
+    <string name="custom">CUSTOM</string>
+    <string name="new_template_default">New Template</string>
+    <string name="failed_create_template">Failed to create template: %s</string>
+    <string name="failed_delete_template">Failed to delete template: %s</string>
+    <string name="failed_start_template">Failed to start from template: %s</string>
+
+    <!-- Exercise History -->
+    <string name="exercise_history">Exercise History</string>
+    <string name="no_pr_yet">No PR yet</string>
+    <string name="max_weight">Max Weight</string>
+    <string name="total_volume">Total Volume</string>
+    <string name="avg_rpe_label">Avg RPE</string>
+    <string name="estimated_1rm_progression">Estimated 1RM Progression</string>
+    <string name="volume_progression">Volume Progression</string>
+    <string name="estimated_1rm">Estimated 1RM</string>
+    <string name="volume_chart_label">Volume (kg)</string>
+    <string name="failed_load_history">Failed to load exercise history: %s</string>
+
+    <!-- 1RM Calculator -->
+    <string name="one_rm_calculator">1RM Calculator</string>
+    <string name="estimate_one_rep_max">Estimate your one-rep max</string>
+    <string name="weight_kg_hint">Weight (kg)</string>
+    <string name="reps_hint">Reps</string>
+    <string name="calculate">Calculate</string>
+    <string name="formulas">Formulas</string>
+    <string name="brzycki">Brzycki:</string>
+    <string name="epley">Epley:</string>
+    <string name="lander">Lander:</string>
+    <string name="lombardi">Lombardi:</string>
+    <string name="oconner">O\'Conner:</string>
+    <string name="mayhew">Mayhew:</string>
+    <string name="training_percentages">Training Percentages</string>
+    <string name="calculate_to_see_percentages">Calculate to see percentages</string>
+
+    <!-- Body Measurements -->
+    <string name="body_measurements">Body Measurements</string>
+    <string name="latest">Latest</string>
+    <string name="weight_label">Weight</string>
+    <string name="body_fat">Body Fat</string>
+    <string name="no_measurements">No measurements yet</string>
+    <string name="no_measurements_add">No measurements yet\nTap + to add your first</string>
+    <string name="history">History</string>
+    <string name="add_measurement">Add Measurement</string>
+    <string name="weight_body_fat">Weight &amp; Body Fat</string>
+    <string name="body_fat_hint">Body Fat %%</string>
+    <string name="body_measurements_cm">Body Measurements (cm)</string>
+    <string name="neck_hint">Neck</string>
+    <string name="shoulders_hint">Shoulders</string>
+    <string name="chest_hint">Chest</string>
+    <string name="left_bicep">Left Bicep</string>
+    <string name="right_bicep">Right Bicep</string>
+    <string name="waist_hint">Waist</string>
+    <string name="hips_hint">Hips</string>
+    <string name="left_thigh">Left Thigh</string>
+    <string name="right_thigh">Right Thigh</string>
+    <string name="left_calf">Left Calf</string>
+    <string name="right_calf">Right Calf</string>
+    <string name="notes_optional">Notes (optional)</string>
+    <string name="failed_load_measurements">Failed to load measurements: %s</string>
+    <string name="failed_save_measurement">Failed to save measurement: %s</string>
+    <string name="failed_delete_measurement">Failed to delete measurement: %s</string>
+    <string name="measurements_exported">Measurements exported successfully</string>
+    <string name="failed_export_measurements">Failed to export measurements</string>
+    <string name="workouts_exported">Workouts exported successfully</string>
+    <string name="failed_export_workouts">Failed to export workouts</string>
+
+    <!-- Volume Analytics -->
+    <string name="volume_by_muscle">Volume by Muscle Group</string>
+    <string name="total_volume_label">Total Volume</string>
+    <string name="most_trained">Most Trained</string>
+    <string name="volume_chart_title">Volume (sets × reps × weight)</string>
+    <string name="total_format">%d total</string>
+    <string name="top_muscle_format">Top: %s</string>
+    <string name="failed_load_volume">Failed to load volume data: %s</string>
+
+    <!-- Profile -->
+    <string name="profile_picture">Profile picture</string>
     <string name="settings">Settings</string>
-    <string name="help_support">Help & Support</string>
+    <string name="help_support">Help &amp; Support</string>
+    <string name="export_workouts_csv">Export Workouts (CSV)</string>
+    <string name="export_measurements_csv">Export Measurements (CSV)</string>
+    <string name="share_csv">Share CSV</string>
+    <string name="biglifts_export">BigLifts - %s</string>
+
+    <!-- Errors -->
+    <string name="failed_create_workout">Failed to create workout: %s</string>
+    <string name="failed_load_workout">Failed to load workout: %s</string>
+    <string name="failed_add_exercise">Failed to add exercise: %s</string>
+    <string name="failed_add_set">Failed to add set: %s</string>
+    <string name="failed_update_set">Failed to update set: %s</string>
+    <string name="failed_finish_workout">Failed to finish workout: %s</string>
+    <string name="failed_discard_workout">Failed to discard workout: %s</string>
+    <string name="failed_load_workouts">Failed to load workouts: %s</string>
+    <string name="failed_delete_workout">Failed to delete workout: %s</string>
+    <string name="failed_load_workout_detail">Failed to load workout details: %s</string>
+
+    <!-- Format patterns -->
+    <string name="weight_kg_format">%s kg</string>
+    <string name="body_fat_format">%s%%</string>
+    <string name="cm_format">%s cm</string>
+    <string name="sets_count_format">%s sets</string>
+    <string name="min_count_format">%smin</string>
+    <string name="k_volume_format">%.1fK kg</string>
+    <string name="kg_volume_format">%d kg</string>
 </resources>

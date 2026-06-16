@@ -22,7 +22,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Workout Routines"
+            android:text="@string/workout_routines"
             android:textSize="20sp"
             android:textStyle="bold"
             android:textColor="@color/text_primary" />
@@ -32,7 +32,7 @@
             style="@style/Widget.MaterialComponents.Button.TextButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="+ New"
+            android:text="@string/new_template"
             android:textColor="@color/primary" />
 
     </LinearLayout>
@@ -51,7 +51,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:padding="32dp"
-        android:text="No templates yet.\nCreate your first routine!"
+        android:text="@string/no_templates_yet"
         android:textColor="@color/text_secondary"
         android:visibility="gone" />
 

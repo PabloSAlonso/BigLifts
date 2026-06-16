@@ -3,6 +3,7 @@ package com.biglifts.workouttracker.ui.exercises.history
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
+import com.biglifts.workouttracker.R
 import com.biglifts.workouttracker.data.api.ApiClient
 import com.biglifts.workouttracker.data.api.ExerciseHistoryEntry
 import com.biglifts.workouttracker.data.models.PersonalRecord
@@ -43,7 +44,7 @@ class ExerciseHistoryViewModel @Inject constructor(
                 val prs = apiClient.getPersonalRecords(exerciseId)
                 _pr.value = prs.firstOrNull()
             } catch (e: Exception) {
-                _error.value = "Failed to load exercise history: ${e.localizedMessage}"
+                _error.value = "${getApplication<Application>().getString(R.string.failed_load_history)} ${e.localizedMessage}"
             } finally {
                 _isLoading.value = false
             }

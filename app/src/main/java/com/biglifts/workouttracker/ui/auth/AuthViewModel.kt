@@ -3,6 +3,7 @@ package com.biglifts.workouttracker.ui.auth
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
+import com.biglifts.workouttracker.R
 import com.biglifts.workouttracker.data.api.ApiClient
 import com.biglifts.workouttracker.data.api.ApiException
 import com.biglifts.workouttracker.data.api.AuthRequest
@@ -42,7 +43,7 @@ class AuthViewModel @Inject constructor(
             } catch (e: ApiException) {
                 _uiState.value = AuthUiState.Error(parseError(e.message))
             } catch (e: Exception) {
-                _uiState.value = AuthUiState.Error("Connection error. Please try again.")
+                _uiState.value = AuthUiState.Error(getApplication<Application>().getString(R.string.connection_error))
             }
         }
     }
@@ -60,7 +61,7 @@ class AuthViewModel @Inject constructor(
             } catch (e: ApiException) {
                 _uiState.value = AuthUiState.Error(parseError(e.message))
             } catch (e: Exception) {
-                _uiState.value = AuthUiState.Error("Connection error. Please try again.")
+                _uiState.value = AuthUiState.Error(getApplication<Application>().getString(R.string.connection_error))
             }
         }
     }
@@ -93,7 +94,7 @@ class AuthViewModel @Inject constructor(
             } catch (e: ApiException) {
                 _uiState.value = AuthUiState.Error(parseError(e.message))
             } catch (e: Exception) {
-                _uiState.value = AuthUiState.Error("Connection error. Please try again.")
+                _uiState.value = AuthUiState.Error(getApplication<Application>().getString(R.string.connection_error))
             }
         }
     }
@@ -108,7 +109,7 @@ class AuthViewModel @Inject constructor(
             try {
                 _profile.value = apiClient.getProfile()
             } catch (e: Exception) {
-                _error.value = "Failed to load profile"
+                _error.value = getApplication<Application>().getString(R.string.failed_load_profile)
             }
         }
     }
@@ -125,9 +126,9 @@ class AuthViewModel @Inject constructor(
 
     private fun parseError(error: String): String {
         return when {
-            error.contains("already registered") -> "Email already registered"
-            error.contains("Invalid login") -> "Invalid email or password"
-            error.contains("Password should") -> "Password must be at least 6 characters"
+            error.contains("already registered") -> getApplication<Application>().getString(R.string.email_already_registered)
+            error.contains("Invalid login") -> getApplication<Application>().getString(R.string.invalid_email_password)
+            error.contains("Password should") -> getApplication<Application>().getString(R.string.password_min_chars)
             else -> error.take(100)
         }
     }

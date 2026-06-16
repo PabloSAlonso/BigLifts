@@ -3,6 +3,7 @@ package com.biglifts.workouttracker.ui.measurements
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
+import com.biglifts.workouttracker.R
 import com.biglifts.workouttracker.data.api.ApiClient
 import com.biglifts.workouttracker.data.api.CreateBodyMeasurementRequest
 import com.biglifts.workouttracker.data.models.BodyMeasurement
@@ -33,7 +34,7 @@ class MeasurementsViewModel @Inject constructor(
                 val result = apiClient.getBodyMeasurements()
                 _measurements.value = result
             } catch (e: Exception) {
-                _error.value = "Failed to load measurements: ${e.localizedMessage}"
+                _error.value = "${getApplication<Application>().getString(R.string.failed_load_measurements)} ${e.localizedMessage}"
             }
         }
     }
@@ -69,7 +70,7 @@ class MeasurementsViewModel @Inject constructor(
                 apiClient.createBodyMeasurement(request)
                 loadMeasurements()
             } catch (e: Exception) {
-                _error.value = "Failed to save measurement: ${e.localizedMessage}"
+                _error.value = "${getApplication<Application>().getString(R.string.failed_save_measurement)} ${e.localizedMessage}"
             }
         }
     }
@@ -80,7 +81,7 @@ class MeasurementsViewModel @Inject constructor(
                 apiClient.deleteBodyMeasurement(id)
                 loadMeasurements()
             } catch (e: Exception) {
-                _error.value = "Failed to delete measurement: ${e.localizedMessage}"
+                _error.value = "${getApplication<Application>().getString(R.string.failed_delete_measurement)} ${e.localizedMessage}"
             }
         }
     }

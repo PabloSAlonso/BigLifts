@@ -102,7 +102,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Start"
+                android:text="@string/start"
                 android:textColor="@color/primary"
                 android:textAllCaps="false" />
 
@@ -111,7 +111,7 @@
                 style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Edit"
+                android:text="@string/edit"
                 android:textColor="@color/text_secondary"
                 android:textAllCaps="false" />
 
@@ -120,7 +120,7 @@
                 style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Delete"
+                android:text="@string/delete"
                 android:textColor="@color/error"
                 android:textAllCaps="false" />
 

@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.biglifts.workouttracker.R
 import com.biglifts.workouttracker.data.models.Exercise
 import com.biglifts.workouttracker.databinding.ItemExerciseBinding
 
@@ -32,7 +33,7 @@ class ExerciseAdapter(
         fun bind(exercise: Exercise) {
             binding.tvExerciseName.text = exercise.name
             binding.tvMuscleGroup.text = exercise.muscle_group ?: exercise.category
-            binding.tvEquipment.text = exercise.equipment ?: "Bodyweight"
+            binding.tvEquipment.text = exercise.equipment ?: itemView.context.getString(R.string.bodyweight)
 
             binding.root.setOnClickListener { onItemClick(exercise) }
         }

@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.biglifts.workouttracker.R
 import com.biglifts.workouttracker.data.api.SessionExerciseWithExercise
 import com.biglifts.workouttracker.databinding.ItemWorkoutExerciseSummaryBinding
 
@@ -37,7 +38,7 @@ class WorkoutExerciseSummaryAdapter :
 
         fun bind(exercise: SessionExerciseWithExercise) {
             val exerciseData = exercise.exercises
-            binding.tvExerciseName.text = exerciseData?.name ?: "Unknown Exercise"
+            binding.tvExerciseName.text = exerciseData?.name ?: itemView.context.getString(R.string.unknown_exercise)
             binding.tvCategory.text = exerciseData?.category ?: ""
             binding.tvEquipment.text = exerciseData?.equipment ?: ""
 

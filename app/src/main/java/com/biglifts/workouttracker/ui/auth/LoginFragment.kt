@@ -58,11 +58,11 @@ class LoginFragment : Fragment() {
             } else {
                 val username = binding.etUsername.text.toString().trim()
                 if (username.isBlank()) {
-                    binding.tilUsername.error = "Username required"
+                    binding.tilUsername.error = getString(R.string.username_required)
                     return@setOnClickListener
                 }
                 if (username.length < 3) {
-                    binding.tilUsername.error = "Min 3 characters"
+                    binding.tilUsername.error = getString(R.string.min_3_characters)
                     return@setOnClickListener
                 }
                 viewModel.register(email, password, username)
@@ -77,11 +77,11 @@ class LoginFragment : Fragment() {
         binding.tvForgotPassword.setOnClickListener {
             val email = binding.etEmail.text.toString().trim()
             if (email.isBlank()) {
-                binding.tilEmail.error = "Enter your email first"
+                binding.tilEmail.error = getString(R.string.enter_email_first)
                 return@setOnClickListener
             }
             // TODO: Implement password reset
-            Snackbar.make(binding.root, "Password reset coming soon", Snackbar.LENGTH_SHORT).show()
+            Snackbar.make(binding.root, getString(R.string.password_reset_coming_soon), Snackbar.LENGTH_SHORT).show()
         }
     }
 
@@ -91,12 +91,12 @@ class LoginFragment : Fragment() {
         binding.tilPassword.error = null
 
         if (isLoginMode) {
-            binding.btnLogin.text = "Login"
-            binding.btnRegister.text = "Create Account"
+            binding.btnLogin.text = getString(R.string.login)
+            binding.btnRegister.text = getString(R.string.create_account)
             binding.tilUsername.isVisible = false
         } else {
-            binding.btnLogin.text = "Register"
-            binding.btnRegister.text = "Already have an account? Login"
+            binding.btnLogin.text = getString(R.string.register)
+            binding.btnRegister.text = getString(R.string.already_have_account_login)
             binding.tilUsername.isVisible = true
         }
     }
@@ -105,20 +105,20 @@ class LoginFragment : Fragment() {
         var valid = true
 
         if (email.isBlank()) {
-            binding.tilEmail.error = "Email required"
+            binding.tilEmail.error = getString(R.string.email_required)
             valid = false
         } else if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            binding.tilEmail.error = "Invalid email format"
+            binding.tilEmail.error = getString(R.string.invalid_email_format)
             valid = false
         } else {
             binding.tilEmail.error = null
         }
 
         if (password.isBlank()) {
-            binding.tilPassword.error = "Password required"
+            binding.tilPassword.error = getString(R.string.password_required)
             valid = false
         } else if (password.length < 6) {
-            binding.tilPassword.error = "Min 6 characters"
+            binding.tilPassword.error = getString(R.string.min_6_characters)
             valid = false
         } else {
             binding.tilPassword.error = null
@@ -150,7 +150,7 @@ class LoginFragment : Fragment() {
                             // After registration, go to login then onboarding
                             isLoginMode = true
                             updateModeUI()
-                            Snackbar.make(binding.root, "Account created! Please login.", Snackbar.LENGTH_LONG).show()
+                            Snackbar.make(binding.root, getString(R.string.account_created_login), Snackbar.LENGTH_LONG).show()
                             viewModel.resetState()
                         }
                         is AuthUiState.Error -> {

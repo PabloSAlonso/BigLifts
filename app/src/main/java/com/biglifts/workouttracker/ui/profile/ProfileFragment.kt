@@ -59,9 +59,9 @@ class ProfileFragment : Fragment() {
             val uri = CsvExport.exportWorkouts(requireContext(), apiClient)
             if (uri != null) {
                 CsvExport.shareFile(requireContext(), uri, "workouts_export.csv")
-                Snackbar.make(binding.root, "Workouts exported successfully", Snackbar.LENGTH_SHORT).show()
+                Snackbar.make(binding.root, getString(R.string.workouts_exported), Snackbar.LENGTH_SHORT).show()
             } else {
-                Snackbar.make(binding.root, "Failed to export workouts", Snackbar.LENGTH_SHORT).show()
+                Snackbar.make(binding.root, getString(R.string.failed_export_workouts), Snackbar.LENGTH_SHORT).show()
             }
         }
     }
@@ -72,9 +72,9 @@ class ProfileFragment : Fragment() {
             val uri = CsvExport.exportMeasurements(requireContext(), apiClient)
             if (uri != null) {
                 CsvExport.shareFile(requireContext(), uri, "measurements_export.csv")
-                Snackbar.make(binding.root, "Measurements exported successfully", Snackbar.LENGTH_SHORT).show()
+                Snackbar.make(binding.root, getString(R.string.measurements_exported), Snackbar.LENGTH_SHORT).show()
             } else {
-                Snackbar.make(binding.root, "Failed to export measurements", Snackbar.LENGTH_SHORT).show()
+                Snackbar.make(binding.root, getString(R.string.failed_export_measurements), Snackbar.LENGTH_SHORT).show()
             }
         }
     }

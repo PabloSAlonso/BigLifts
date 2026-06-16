@@ -102,10 +102,10 @@ class ActiveWorkoutFragment : Fragment() {
         binding.btnPauseTimer.setOnClickListener {
             if (restTimerViewModel.isRunning.value) {
                 restTimerViewModel.pauseTimer()
-                binding.btnPauseTimer.text = "Resume"
+                binding.btnPauseTimer.text = getString(R.string.resume)
             } else {
                 restTimerViewModel.resumeTimer(requireContext())
-                binding.btnPauseTimer.text = "Pause"
+                binding.btnPauseTimer.text = getString(R.string.pause)
             }
         }
 
@@ -178,7 +178,7 @@ class ActiveWorkoutFragment : Fragment() {
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 restTimerViewModel.isRunning.collect { running ->
-                    binding.btnPauseTimer.text = if (running) "Pause" else "Resume"
+                    binding.btnPauseTimer.text = if (running) getString(R.string.pause) else getString(R.string.resume)
                 }
             }
         }
@@ -198,29 +198,29 @@ class ActiveWorkoutFragment : Fragment() {
 
     private fun showFinishDialog() {
         MaterialAlertDialogBuilder(requireContext())
-            .setTitle("Finish Workout?")
-            .setMessage("Save this workout session?")
-            .setPositiveButton("Finish") { _, _ ->
+            .setTitle(getString(R.string.finish_workout_question))
+            .setMessage(getString(R.string.save_workout_session))
+            .setPositiveButton(getString(R.string.finish)) { _, _ ->
                 viewModel.finishWorkout()
                 handler.removeCallbacks(timerRunnable)
                 restTimerViewModel.stopTimer()
                 findNavController().popBackStack()
             }
-            .setNegativeButton("Continue", null)
+            .setNegativeButton(getString(R.string.continue_str), null)
             .show()
     }
 
     private fun showExitDialog() {
         MaterialAlertDialogBuilder(requireContext())
-            .setTitle("Exit Workout?")
-            .setMessage("Current workout will be discarded.")
-            .setPositiveButton("Exit") { _, _ ->
+            .setTitle(getString(R.string.exit_workout_question))
+            .setMessage(getString(R.string.workout_will_be_discarded))
+            .setPositiveButton(getString(R.string.exit)) { _, _ ->
                 viewModel.discardWorkout()
                 handler.removeCallbacks(timerRunnable)
                 restTimerViewModel.stopTimer()
                 findNavController().popBackStack()
             }
-            .setNegativeButton("Cancel", null)
+            .setNegativeButton(getString(R.string.cancel), null)
             .show()
     }
 
